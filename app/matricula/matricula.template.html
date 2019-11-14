@@ -1,0 +1,55 @@
+<div flex layout="column" layout-align="center center">
+    <h1 class="md-display-2">Matricula</h1>
+    <md-content layout-padding flex="30">
+        <form name="nouAlumneForm" ng-submit="postalumne(nouAlumneForm.$valid)">
+            <h2 class="md-headline">Crear nou Alumne</h2>
+            <md-input-container class="md-block">
+                <label>Nom</label>
+                <input type="text" md-maxlength="20" required name="nom" ng-model="alumnes.nom">
+                <div ng-messages="nouAlumneForm.Nom.$error">
+                    <div ng-message="required">Aquest camp és requerit.</div>
+                    <div ng-message="md-maxlength">El nom  no pot passar de 20 caràcters</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Cognom</label>
+                <input type="text" md-maxlength="40" required name="cognom" ng-model="alumnes.cognom">
+                <div ng-messages="nouAlumneForm.Cognom.$error">
+                    <div ng-message="required">Aquest camp és requerit.</div>
+                    <div ng-message="md-maxlength">El nom  no pot passar de 40 caràcters</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Edat</label>
+                <input type="number" md-maxlength="3" required name="Edat" ng-model="alumnes.edat">
+                <div ng-messages="nouAlumneForm.Edat.$error">
+                    <div ng-message="required">Aquest camp és requerit.</div>
+                    <div ng-message="md-maxlength">No pots posar més de 3 numeros</div>
+                </div>
+            </md-input-container>
+            <div>
+                <md-button layout="row" layout-align="center center" aria-label="boto" class="md-primary md-raised" type="submit">
+                    <div ng-if="loading">Crear</div>
+                    <md-progress-circular class="md-accent" ng-if="!loading" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                </md-button>
+            </div>
+        </form>
+    </md-content>
+    <div flex layout="column" layout-align="center center">
+        <p>Llista d'alumnes</p>
+        <div layout-align="center start" layout-wrap flex>
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Cognom</th>
+                    <th>Edat</th>
+                </tr>
+                <tr ng-repeat="alumne in alumnes">
+                    <td>{{alumne.nom}}</td>
+                    <td>{{alumne.cognom}}</td>
+                    <td>{{alumne.edat}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
