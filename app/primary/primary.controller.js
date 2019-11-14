@@ -1,4 +1,4 @@
-angular.module('primary').controller('primaryController', function PrimaryController() {
+angular.module('primary').controller('primaryController', [function PrimaryController() {
 
 
-});
+}]);
