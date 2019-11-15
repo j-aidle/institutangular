@@ -5,7 +5,24 @@ angular.module('matricula')
             {
                 $scope.loading = false;
                 $scope.loadingdelete = null;
-                
+                $scope.loadingupdate = null;
+
+                $scope.editing = null;
+                $scope.canviAlumne = {
+                    nom: "",
+                    cognom: "",
+                    edat: ""
+                };
+                $scope.initupdatealum = (alumne, param) => {
+                    $scope.editing = alumne.id + param;
+                    $scope.canviAlumne.id = alumne.id;
+                    $scope.canviAlumne.nom = alumne.nom;
+                    $scope.canviAlumne.cognom = alumne.cognom;
+                    $scope.canviAlumne.edat = alumne.edat;
+
+                };
+
+                                
                 var resetform = function () {
                     $scope.nouAlumneForm.$setPristine();
                     $scope.nouAlumneForm.nom.$touched = false;
@@ -55,7 +72,7 @@ angular.module('matricula')
 
             $scope.destroyalumne = (alumne) => {
                 $scope.loadingdelete = alumne.id;
-                alumnes.delete(alumne.id).then(
+                alumnes.delete(alumne.id, $scope.canviAlumne).then(
                     () => { 
                         
                         alumnes.get().then((response) => {
@@ -68,6 +85,25 @@ angular.module('matricula')
                     (error) => { console.log(error) }
                 );
             }
+
+                $scope.updatealumne = (alumne) => {
+                    alumnes.update(alumne.id, $scope.canviAlumne).then(
+                        (response) => {
+                            $scope.loadingupdate = alumne.id;
+                            console.log(response);
+                            alumnes.get().then((response) => {
+                                $scope.alumnes = response.data;
+                                console.log(response.data);
+                            }, (error) => {
+                                console.log(error)
+                                });
+                            $scope.loadingupdate = null;
+                            $scope.editing = null;
+                        }, (error) => {
+                            console.log(error);
+                        })
+                };
+
         
 
         }])

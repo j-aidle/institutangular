@@ -44,15 +44,31 @@
                     <th>Cognom</th>
                     <th>Edat</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 <tr ng-repeat="alumne in alumnes">
-                    <td>{{alumne.nom}}</td>
-                    <td>{{alumne.cognom}}</td>
-                    <td>{{alumne.edat}}</td>
                     <td>
-                        <md-button class="md-raised md-warn"  aria-label="botodelete" ng-click="destroyalumne(alumne)">
+                        <p ng-if="editing != alumne.id + 'nom'" ng-dblclick="initupdatealum(alumne , 'nom')">{{alumne.nom}}</p>
+                        <input ng-if="editing == alumne.id + 'nom'" type="text" name="alumne.nom" ng-model="canviAlumne.nom"/>
+                    </td>
+                    <td>
+                        <p ng-if="editing != alumne.id + 'cognom'" ng-dblclick="initupdatealum(alumne , 'cognom')">{{alumne.cognom}}</p>
+                        <input ng-if="editing == alumne.id + 'cognom'" type="text" name="alumne.cognom" ng-model="canviAlumne.cognom"/>
+                    </td>
+                    <td>
+                        <p ng-if="editing != alumne.id + 'edat'" ng-dblclick="initupdatealum(alumne , 'edat')">{{alumne.edat}}</p>
+                        <input ng-if="editing == alumne.id + 'edat'" type="text" name="alumne.edat" ng-model="canviAlumne.edat" />
+                    </td>
+                    <td>
+                        <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="destroyalumne(alumne)">
                             <div ng-if="loadingdelete != alumne.id">Delete</div>
                             <md-progress-circular class="md-accent" ng-if="loadingdelete == alumne.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                        </md-button>
+                    </td>
+                    <td>
+                        <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updatealumne(alumne)">
+                            <div ng-if="loadingupdate != alumne.id">Update</div>
+                            <md-progress-circular class="md-accent" ng-if="loadingupdate == alumne.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
                         </md-button>
                     </td>
                 </tr>
