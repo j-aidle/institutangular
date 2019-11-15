@@ -5,6 +5,17 @@ angular.module('matricula')
             {
                 $scope.loading = false;
                 $scope.loadingdelete = null;
+                
+                var resetform = function () {
+                    $scope.nouAlumneForm.$setPristine();
+                    $scope.nouAlumneForm.nom.$touched = false;
+                    $scope.nouAlumneForm.nom.$untouched = true;
+                    $scope.nouAlumneForm.cognom.$touched = false;
+                    $scope.nouAlumneForm.cognom.$untouched = true;
+                    $scope.nouAlumneForm.Edat.$touched = false;
+                    $scope.nouAlumneForm.Edat.$untouched = true;
+                }; 
+
 
             alumnes.get().then((response) => {
                 $scope.alumnes = response.data;
@@ -33,9 +44,7 @@ angular.module('matricula')
                             }, (error) => {
                                 console.log(error)
                             });
-                            $scope.alumnes.nom = "";
-                            $scope.alumnes.cognom = "";
-                            $scope.alumnes.edat = "";
+                            resetform();
                             $scope.loading = false;
                         }, (error) => { console.log(error); }
 
