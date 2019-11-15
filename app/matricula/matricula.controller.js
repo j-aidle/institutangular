@@ -3,6 +3,9 @@ angular.module('matricula')
         ['$scope', 'alumnes',
             function matriculaController($scope, alumnes)
             {
+                $scope.loading = false;
+                $scope.loadingdelete = null;
+
             alumnes.get().then((response) => {
                 $scope.alumnes = response.data;
                 console.log(response.data);
@@ -10,8 +13,9 @@ angular.module('matricula')
                 console.log(error)
             });
 
-                $scope.postalumne = (isValid) => {
-                    if (isValid) {
+            $scope.postalumne = (isValid) => {
+                if (isValid) {
+                    $scope.loading = true;
                         var data = {
                             nom: $scope.alumnes.nom,
                             cognom: $scope.alumnes.cognom,
@@ -21,7 +25,7 @@ angular.module('matricula')
                             headers: { 'Content-Type': 'application/json' }
                         };
 
-                        alumnes.post(data,config).then(() => {
+                        alumnes.post(data, config).then(() => {
                             $scope.msg = "creat";
                             alumnes.get().then((response) => {
                                 $scope.alumnes = response.data;
@@ -32,11 +36,29 @@ angular.module('matricula')
                             $scope.alumnes.nom = "";
                             $scope.alumnes.cognom = "";
                             $scope.alumnes.edat = "";
+                            $scope.loading = false;
                         }, (error) => { console.log(error); }
 
                         );
 
-                    }}
-            
+                    }
+            }   
+
+            $scope.destroyalumne = (alumne) => {
+                $scope.loadingdelete = alumne.id;
+                alumnes.delete(alumne.id).then(
+                    () => { 
+                        
+                        alumnes.get().then((response) => {
+                            $scope.alumnes = response.data;
+                        }, (error) => {
+                            console.log(error)
+                            });
+                        $scope.loadingdelete = null;
+                    },
+                    (error) => { console.log(error) }
+                );
+            }
+        
 
         }])
