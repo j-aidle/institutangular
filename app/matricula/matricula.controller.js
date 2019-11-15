@@ -5,7 +5,6 @@ angular.module('matricula')
             {
                 $scope.loading = false;
                 $scope.loadingdelete = null;
-<<<<<<< HEAD
                 
                 var resetform = function () {
                     $scope.nouAlumneForm.$setPristine();
@@ -17,8 +16,6 @@ angular.module('matricula')
                     $scope.nouAlumneForm.Edat.$untouched = true;
                 }; 
 
-=======
->>>>>>> cd4b4927600ee23dd561f3582b3ee31565c3ad8d
 
             alumnes.get().then((response) => {
                 $scope.alumnes = response.data;
@@ -47,13 +44,7 @@ angular.module('matricula')
                             }, (error) => {
                                 console.log(error)
                             });
-<<<<<<< HEAD
                             resetform();
-=======
-                            $scope.alumnes.nom = "";
-                            $scope.alumnes.cognom = "";
-                            $scope.alumnes.edat = "";
->>>>>>> cd4b4927600ee23dd561f3582b3ee31565c3ad8d
                             $scope.loading = false;
                         }, (error) => { console.log(error); }
 
