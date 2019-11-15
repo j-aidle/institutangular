@@ -87,9 +87,9 @@ angular.module('matricula')
             }
 
                 $scope.updatealumne = (alumne) => {
+                    $scope.loadingupdate = alumne.id;
                     alumnes.update(alumne.id, $scope.canviAlumne).then(
                         (response) => {
-                            $scope.loadingupdate = alumne.id;
                             console.log(response);
                             alumnes.get().then((response) => {
                                 $scope.alumnes = response.data;
