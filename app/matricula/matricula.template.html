@@ -28,9 +28,9 @@
                 </div>
             </md-input-container>
             <div>
-                <md-button layout="row" layout-align="center center" aria-label="boto" class="md-primary md-raised" type="submit">
-                    <div ng-if="loading">Crear</div>
-                    <md-progress-circular class="md-accent" ng-if="!loading" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                <md-button layout="row" layout-align="center center" aria-label="botocrear" class="md-primary md-raised" type="submit">
+                    <div ng-if="!loading">Crear</div>
+                    <md-progress-circular class="md-accent" ng-if="loading" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
                 </md-button>
             </div>
         </form>
@@ -43,11 +43,18 @@
                     <th>Nom</th>
                     <th>Cognom</th>
                     <th>Edat</th>
+                    <th></th>
                 </tr>
                 <tr ng-repeat="alumne in alumnes">
                     <td>{{alumne.nom}}</td>
                     <td>{{alumne.cognom}}</td>
                     <td>{{alumne.edat}}</td>
+                    <td>
+                        <md-button class="md-raised md-warn"  aria-label="botodelete" ng-click="destroyalumne(alumne)">
+                            <div ng-if="loadingdelete != alumne.id">Delete</div>
+                            <md-progress-circular class="md-accent" ng-if="loadingdelete == alumne.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                        </md-button>
+                    </td>
                 </tr>
             </table>
         </div>

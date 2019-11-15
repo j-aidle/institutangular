@@ -4,8 +4,10 @@
     "\\app",
     "\\app\\header",
     "\\app\\home",
-    "\\app\\primary"
+    "\\app\\matricula",
+    "\\app\\primary",
+    "\\app\\serveis"
   ],
-  "SelectedNode": "\\app\\primary\\primary.template.html",
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }
