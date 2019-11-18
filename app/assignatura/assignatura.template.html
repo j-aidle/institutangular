@@ -24,10 +24,17 @@
             <table>
                 <tr>
                     <th>Nom</th>
+                    <th></th>
                 </tr>
                 <tr ng-repeat="assignatura in assignatures">
                     <td>
                         <p>{{assignatura.nom}}</p>
+                    </td>
+                    <td>
+                        <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,assignatura)">
+                            <div ng-if="loadingdelete != assignatura.id">Delete</div>
+                            <md-progress-circular class="md-accent" ng-if="loadingdelete == assignatura.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                        </md-button>
                     </td>
                 </tr>
             </table>

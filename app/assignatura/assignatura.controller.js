@@ -1,8 +1,9 @@
 angular.module('assignatura')
     .controller('assignaturaController',
-    ['$scope', 'assignatures',
-        function assignaturaController($scope, assignatures) {
+    ['$scope', '$mdDialog', '$mdToast', 'assignatures',
+        function assignaturaController($scope, $mdDialog, $mdToast, assignatures) {
             $scope.loading = false;
+            $scope.loadingdelete = null;
 
             var resetformAssignatures = function () {
                 $scope.novaAssignaturaForm.$setPristine();
@@ -34,7 +35,7 @@ angular.module('assignatura')
                             $scope.assignatures = response.data;
                         }, (error) => {
                             console.log(error);
-                        }
+                            }
                         );
                         resetformAssignatures();
                         $scope.loading = false;
@@ -42,5 +43,35 @@ angular.module('assignatura')
 
                 }
             };
+
+            var destroyassignatura = (assignatura) => {
+                $scope.loadingdelete = assignatura.id;
+                assignatures.delete(assignatura.id).then(() => {
+                    assignatures.get().then((response) => {
+                        console.log(response);
+                        $scope.assignatures = response.data;
+                    }, (error) => {
+                        console.log(error);
+                    });
+                        $scope.loadingdelete = null;
+                }, (error) => { console.log(error); });
+            };
+
+
+            $scope.confirmDelete = (ev, assignatura) => {
+                var confirm = $mdDialog.confirm()
+                    .title('Estas segur que vols esborrar-lo? ID Assignatura: ' + assignatura.id)
+                    .textContent('L assignatura que has seleccionat serà esborrada permanentment.')
+                    .ariaLabel('Esborrar assignatura')
+                    .targetEvent(ev)
+                    .ok('Si')
+                    .cancel('Cancel');
+
+                $mdDialog.show(confirm).then(function () {
+                    destroyassignatura(assignatura);
+                });
+            }
+
+
 
         }]);
