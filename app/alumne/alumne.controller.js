@@ -1,7 +1,7 @@
 angular.module('alumne')
     .controller('alumneController',
-        ['$scope', 'alumnes',
-            function matriculaController($scope, alumnes)
+    ['$scope', '$mdDialog', '$mdToast', 'alumnes',
+        function matriculaController($scope, $mdDialog, $mdToast, alumnes)
             {
                 $scope.slide = 'slide-left';
                 $scope.loading = false;
@@ -71,7 +71,7 @@ angular.module('alumne')
                     }
             }   
 
-            $scope.destroyalumne = (alumne) => {
+            var destroyalumne = (alumne) => {
                 $scope.loadingdelete = alumne.id;
                 alumnes.delete(alumne.id, $scope.canviAlumne).then(
                     () => { 
@@ -86,6 +86,22 @@ angular.module('alumne')
                     (error) => { console.log(error) }
                 );
             }
+
+                $scope.confirmDelete = (ev, alumne) => {
+                    var confirm = $mdDialog.confirm()
+                        .title('Estas segur que vols esborrar-lo: ' + alumne.id + '?')
+                        .textContent('L alumne que has seleccionat serà esborrat permanentment.')
+                        .ariaLabel('Esborrar alumne')
+                        .targetEvent(ev)
+                        .ok('Si')
+                        .cancel('Cancel');
+
+                    $mdDialog.show(confirm).then(function () {
+                        destroyalumne(alumne);
+                    });
+                }
+
+
 
                 $scope.updatealumne = (alumne) => {
                     $scope.loadingupdate = alumne.id;
@@ -105,6 +121,65 @@ angular.module('alumne')
                         })
                 };
 
-        
+
+
+
+                // TOAST
+
+                var last = {
+                    bottom: false,
+                    top: true,
+                    left: false,
+                    right: true
+                };
+
+                var toastPosition = angular.extend({}, last);
+
+                var getToastPosition = () => {
+                    sanitizePosition();
+
+                    return Object.keys(toastPosition)
+                        .filter(function (pos) {
+                            return toastPosition[pos];
+                        }).join(' ');
+                };
+
+                var sanitizePosition = () => {
+                    var current = toastPosition;
+
+                    if (current.bottom && last.top) {
+                        current.top = false;
+                    }
+                    if (current.top && last.bottom) {
+                        current.bottom = false;
+                    }
+                    if (current.right && last.left) {
+                        current.left = false;
+                    }
+                    if (current.left && last.right) {
+                        current.right = false;
+                    }
+
+                    last = angular.extend({}, current);
+                }
+
+                var showSimpleToast = () => {
+                    var pinTo = getToastPosition();
+
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .textContent('S\'ha creat l\'alumne!')
+                            .position(pinTo)
+                            .hideDelay(3000))
+                        .then(function () {
+                            console.log('Toast dismissed.');
+                        }).catch(function () {
+                            console.log('Toast failed or was forced to close early by another toast.');
+                        });
+                };
+
+
+
+
 
         }])

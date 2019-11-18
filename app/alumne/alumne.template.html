@@ -60,7 +60,7 @@
                         <input ng-if="editing == alumne.id + 'edat'" type="text" name="alumne.edat" ng-model="canviAlumne.edat" />
                     </td>
                     <td>
-                        <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="destroyalumne(alumne)">
+                        <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,alumne)">
                             <div ng-if="loadingdelete != alumne.id">Delete</div>
                             <md-progress-circular class="md-accent" ng-if="loadingdelete == alumne.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
                         </md-button>
