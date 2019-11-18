@@ -3,7 +3,7 @@ angular.module('alumne')
     ['$scope', '$mdDialog', '$mdToast', 'alumnes',
         function matriculaController($scope, $mdDialog, $mdToast, alumnes)
             {
-                $scope.slide = 'slide-left';
+
                 $scope.loading = false;
                 $scope.loadingdelete = null;
                 $scope.loadingupdate = null;
@@ -35,61 +35,61 @@ angular.module('alumne')
                 }; 
 
 
-            alumnes.get().then((response) => {
-                $scope.alumnes = response.data;
-                console.log(response.data);
-            }, (error) => {
-                console.log(error)
-            });
+                alumnes.get().then((response) => {
+                    $scope.alumnes = response.data;
+                    console.log(response.data);
+                }, (error) => {
+                    console.log(error)
+                });
 
-            $scope.postalumne = (isValid) => {
-                if (isValid) {
-                    $scope.loading = true;
-                        var data = {
-                            nom: $scope.alumnes.nom,
-                            cognom: $scope.alumnes.cognom,
-                            edat: $scope.alumnes.edat
-                        };
-                        var config = {
-                            headers: { 'Content-Type': 'application/json' }
-                        };
+                $scope.postalumne = (isValid) => {
+                    if (isValid) {
+                        $scope.loading = true;
+                            var data = {
+                                nom: $scope.alumnes.nom,
+                                cognom: $scope.alumnes.cognom,
+                                edat: $scope.alumnes.edat
+                            };
+                            var config = {
+                                headers: { 'Content-Type': 'application/json' }
+                            };
 
-                        alumnes.post(data, config).then(() => {
-                            $scope.msg = "creat";
+                            alumnes.post(data, config).then(() => {
+                                $scope.msg = "creat";
+                                alumnes.get().then((response) => {
+                                    $scope.alumnes = response.data;
+                                    console.log(response.data);
+                                }, (error) => {
+                                    console.log(error)
+                                });
+                                resetform();
+                                $scope.loading = false;
+                            }, (error) => { console.log(error); }
+
+                            );
+
+                        }
+                }   
+
+                var destroyalumne = (alumne) => {
+                    $scope.loadingdelete = alumne.id;
+                    alumnes.delete(alumne.id, $scope.canviAlumne).then(
+                        () => { 
+                        
                             alumnes.get().then((response) => {
                                 $scope.alumnes = response.data;
-                                console.log(response.data);
                             }, (error) => {
                                 console.log(error)
-                            });
-                            resetform();
-                            $scope.loading = false;
-                        }, (error) => { console.log(error); }
-
-                        );
-
-                    }
-            }   
-
-            var destroyalumne = (alumne) => {
-                $scope.loadingdelete = alumne.id;
-                alumnes.delete(alumne.id, $scope.canviAlumne).then(
-                    () => { 
-                        
-                        alumnes.get().then((response) => {
-                            $scope.alumnes = response.data;
-                        }, (error) => {
-                            console.log(error)
-                            });
-                        $scope.loadingdelete = null;
-                    },
-                    (error) => { console.log(error) }
-                );
-            }
+                                });
+                            $scope.loadingdelete = null;
+                        },
+                        (error) => { console.log(error) }
+                    );
+                }
 
                 $scope.confirmDelete = (ev, alumne) => {
                     var confirm = $mdDialog.confirm()
-                        .title('Estas segur que vols esborrar-lo: ' + alumne.id + '?')
+                        .title('Estas segur que vols esborrar-lo? ID Alumne: ' + alumne.id)
                         .textContent('L alumne que has seleccionat serà esborrat permanentment.')
                         .ariaLabel('Esborrar alumne')
                         .targetEvent(ev)
@@ -177,8 +177,6 @@ angular.module('alumne')
                             console.log('Toast failed or was forced to close early by another toast.');
                         });
                 };
-
-
 
 
 

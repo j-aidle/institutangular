@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and core components
-angular.module('App', ['ui.router', 'ngMaterial', 'home', 'header', 'primary', 'serveis', 'alumne'])
+angular.module('App', ['ui.router', 'ngMaterial', 'home', 'header', 'primary', 'serveis', 'alumne','assignatura'])
     .config(['$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($stateProvider, $urlRouterProvider,$mdThemingProvider) {
         $stateProvider.state('layout', {
             url: '',
@@ -35,6 +35,15 @@ angular.module('App', ['ui.router', 'ngMaterial', 'home', 'header', 'primary', '
                 home: {
                     templateUrl: './alumne/alumne.template.html',
                     controller: 'alumneController'
+                }
+            }
+        });
+        $stateProvider.state('layout.assignatura', {
+            url: '/assignatura',
+            views: {
+                home: {
+                    templateUrl: './assignatura/assignatura.template.html',
+                    controller: 'assignaturaController'
                 }
             }
         });
