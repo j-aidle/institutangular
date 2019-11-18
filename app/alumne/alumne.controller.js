@@ -1,8 +1,9 @@
-angular.module('matricula')
-    .controller('matriculaController',
+angular.module('alumne')
+    .controller('alumneController',
         ['$scope', 'alumnes',
             function matriculaController($scope, alumnes)
             {
+                $scope.slide = 'slide-left';
                 $scope.loading = false;
                 $scope.loadingdelete = null;
                 $scope.loadingupdate = null;

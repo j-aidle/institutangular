@@ -2,12 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\header",
     "\\app\\home",
     "\\app\\matricula",
     "\\app\\primary",
     "\\app\\serveis"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\app\\matricula\\matricula.controller.js",
   "PreviewInSolutionExplorer": false
 }
