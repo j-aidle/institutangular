@@ -3,8 +3,16 @@ angular.module('alumne')
     ['$scope', '$mdDialog', '$mdToast', 'alumnes',
         function matriculaController($scope, $mdDialog, $mdToast, alumnes)
             {
-                this.orderProp = 'id';
-                
+                //this.orderProp = 'id';
+                $scope.propertyName = 'edat';
+                $scope.reverse = true;
+
+                $scope.sortBy = function (propertyName) {
+                    $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+                    $scope.propertyName = propertyName;
+                };
+
+
                 $scope.loading = false;
                 $scope.loadingdelete = null;
                 $scope.loadingupdate = null;

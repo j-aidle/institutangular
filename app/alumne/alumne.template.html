@@ -37,7 +37,7 @@
     </md-content>
     <div flex layout="column" layout-align="center center">
         <p>Llista d'alumnes</p>
-        <md-input-container>
+        <!--<md-input-container>
             <label>Ordena</label>
             <md-select ng-model="$ctrl.orderProp">
                 <md-option value="id">ID</md-option>
@@ -45,17 +45,26 @@
                 <md-option value="cognom">Cognom</md-option>
                 <md-option value="-edat">Edat</md-option>
             </md-select>
-        </md-input-container>
+        </md-input-container>-->
         <div layout-align="center start" layout-wrap flex>
             <table>
                 <tr>
-                    <th>Nom</th>
-                    <th>Cognom</th>
-                    <th>Edat</th>
+                    <th>
+                        <md-button ng-click="sortBy('nom')">Nom</md-button>
+                        <span class="sortorder" ng-show="propertyName === 'nom'" ng-class="{reverse: reverse}"></span>
+                    </th>
+                    <th>
+                        <md-button ng-click="sortBy('cognom')">Cognom</md-button>
+                        <span class="sortorder" ng-show="propertyName === 'cognom'" ng-class="{reverse: reverse}"></span>
+                    </th>
+                    <th>
+                        <md-button ng-click="sortBy('edat')">Edat</md-button>
+                        <span class="sortorder" ng-show="propertyName === 'edat'" ng-class="{reverse: reverse}"></span>
+                    </th>
                     <th></th>
                     <th></th>
                 </tr>
-                <tr ng-repeat="alumne in alumnes | orderBy:$ctrl.orderProp">
+                <tr ng-repeat="alumne in alumnes | orderBy:propertyName:reverse">
                     <td>
                         <p ng-if="editing != alumne.id + 'nom'" ng-dblclick="initupdatealum(alumne , 'nom')">{{alumne.nom}}</p>
                         <input auto-focus ng-blur="unselect()" ng-if="editing == alumne.id + 'nom'" type="text" name="alumne.nom" ng-model="canviAlumne.nom" />

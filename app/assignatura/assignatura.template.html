@@ -37,7 +37,7 @@
                 <th></th>
                 <th></th>
             </tr>
-            <tr ng-repeat="assignatura in assignatures | orderBy:propertyName:!reverse">
+            <tr ng-repeat="assignatura in assignatures | orderBy:propertyName:reverse">
                 <td>
                     <p ng-if="editing != assignatura.id + 'nom'" ng-dblclick="initupdateassignatura(assignatura , 'nom')">{{assignatura.nom}}</p>
                     <input auto-focus ng-blur="unselect()" ng-if="editing == assignatura.id + 'nom'" type="text" name="assignatura.nom" ng-model="canviassignatura.nom" />

@@ -5,10 +5,10 @@ angular.module('assignatura')
 
             //this.orderProp = 'id';
             $scope.propertyName = 'nom';
-            $scope.reverse = true;
+            $scope.reverse = false;
 
             $scope.sortBy = function (propertyName) {
-                $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+                $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : true;
                 $scope.propertyName = propertyName;
             };
 
