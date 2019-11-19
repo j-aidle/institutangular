@@ -3,6 +3,16 @@ angular.module('assignatura')
     ['$scope', '$mdDialog', '$mdToast', 'assignatures',
         function assignaturaController($scope, $mdDialog, $mdToast, assignatures) {
 
+            //this.orderProp = 'id';
+            $scope.propertyName = 'nom';
+            $scope.reverse = true;
+
+            $scope.sortBy = function (propertyName) {
+                $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+                $scope.propertyName = propertyName;
+            };
+
+
             $scope.loading = false;
             $scope.loadingdelete = null;
             $scope.loadingupdate = null;

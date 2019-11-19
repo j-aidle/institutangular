@@ -13,3 +13,12 @@ table, th, td {
     table tr:nth-child(even) {
         background-color: #ffffff;
     }
+.sortorder.reverse:after {
+    content: '\25b2';
+    // BLACK DOWN-POINTING TRIANGLE
+}
+
+.sortorder:after {
+    content: '\25bc';
+    // BLACK UP-POINTING TRIANGLE
+}

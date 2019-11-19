@@ -3,7 +3,8 @@ angular.module('alumne')
     ['$scope', '$mdDialog', '$mdToast', 'alumnes',
         function matriculaController($scope, $mdDialog, $mdToast, alumnes)
             {
-
+                this.orderProp = 'id';
+                
                 $scope.loading = false;
                 $scope.loadingdelete = null;
                 $scope.loadingupdate = null;

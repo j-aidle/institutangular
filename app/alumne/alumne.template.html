@@ -37,6 +37,15 @@
     </md-content>
     <div flex layout="column" layout-align="center center">
         <p>Llista d'alumnes</p>
+        <md-input-container>
+            <label>Ordena</label>
+            <md-select ng-model="$ctrl.orderProp">
+                <md-option value="id">ID</md-option>
+                <md-option value="nom">Nom</md-option>
+                <md-option value="cognom">Cognom</md-option>
+                <md-option value="-edat">Edat</md-option>
+            </md-select>
+        </md-input-container>
         <div layout-align="center start" layout-wrap flex>
             <table>
                 <tr>
@@ -46,14 +55,14 @@
                     <th></th>
                     <th></th>
                 </tr>
-                <tr ng-repeat="alumne in alumnes">
+                <tr ng-repeat="alumne in alumnes | orderBy:$ctrl.orderProp">
                     <td>
                         <p ng-if="editing != alumne.id + 'nom'" ng-dblclick="initupdatealum(alumne , 'nom')">{{alumne.nom}}</p>
-                        <input auto-focus ng-blur="unselect()" ng-if="editing == alumne.id + 'nom'" type="text" name="alumne.nom" ng-model="canviAlumne.nom"/>
+                        <input auto-focus ng-blur="unselect()" ng-if="editing == alumne.id + 'nom'" type="text" name="alumne.nom" ng-model="canviAlumne.nom" />
                     </td>
                     <td>
                         <p ng-if="editing != alumne.id + 'cognom'" ng-dblclick="initupdatealum(alumne , 'cognom')">{{alumne.cognom}}</p>
-                        <input auto-focus ng-blur="unselect()" ng-if="editing == alumne.id + 'cognom'" type="text" name="alumne.cognom" ng-model="canviAlumne.cognom"/>
+                        <input auto-focus ng-blur="unselect()" ng-if="editing == alumne.id + 'cognom'" type="text" name="alumne.cognom" ng-model="canviAlumne.cognom" />
                     </td>
                     <td>
                         <p ng-if="editing != alumne.id + 'edat'" ng-dblclick="initupdatealum(alumne , 'edat')">{{alumne.edat}}</p>
