@@ -25,15 +25,23 @@
                 <tr>
                     <th>Nom</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 <tr ng-repeat="assignatura in assignatures">
                     <td>
-                        <p>{{assignatura.nom}}</p>
+                        <p ng-if="editing != assignatura.id + 'nom'" ng-dblclick="initupdateassignatura(assignatura , 'nom')">{{assignatura.nom}}</p>
+                        <input auto-focus ng-if="editing == assignatura.id + 'nom'" type="text" name="assignatura.nom" ng-model="canviassignatura.nom" ng-blur="unselect()"/>
                     </td>
                     <td>
                         <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,assignatura)">
                             <div ng-if="loadingdelete != assignatura.id">Delete</div>
                             <md-progress-circular class="md-accent" ng-if="loadingdelete == assignatura.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                        </md-button>
+                    </td>
+                    <td>
+                        <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updateassignatura(assignatura)">
+                            <div ng-if="loadingupdate != assignatura.id">Update</div>
+                            <md-progress-circular class="md-accent" ng-if="loadingupdate == assignatura.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
                         </md-button>
                     </td>
                 </tr>

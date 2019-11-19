@@ -1,1 +1,1 @@
-angular.module('assignatura', ['serveis']);
+angular.module('assignatura', ['serveis','directives']);

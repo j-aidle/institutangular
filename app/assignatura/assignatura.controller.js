@@ -2,8 +2,26 @@ angular.module('assignatura')
     .controller('assignaturaController',
     ['$scope', '$mdDialog', '$mdToast', 'assignatures',
         function assignaturaController($scope, $mdDialog, $mdToast, assignatures) {
+
             $scope.loading = false;
             $scope.loadingdelete = null;
+            $scope.loadingupdate = null;
+
+            $scope.editing = null;
+            $scope.canviassignatura = {
+                nom: ""
+            };
+
+            $scope.unselect = () => {
+                $scope.editing = null;
+            };
+
+            $scope.initupdateassignatura = (assignatura, param) => {
+                $scope.editing = assignatura.id + param;
+                $scope.canviassignatura.id = assignatura.id;
+                $scope.canviassignatura.nom = assignatura.nom;
+            };
+
 
             var resetformAssignatures = function () {
                 $scope.novaAssignaturaForm.$setPristine();
@@ -70,7 +88,29 @@ angular.module('assignatura')
                 $mdDialog.show(confirm).then(function () {
                     destroyassignatura(assignatura);
                 });
-            }
+            };
+
+            $scope.updateassignatura = (assignatura) => {
+                $scope.loadingupdate = assignatura.id;
+                assignatures.update(assignatura.id, $scope.canviassignatura).then(
+                    (response) => {
+                        console.log(response);
+                        assignatures.get().then((response) => {
+                            console.log(response);
+                            $scope.assignatures = response.data;
+                        }, (error) => {
+                            console.log(error);
+                            });
+                        $scope.loadingupdate = null;
+                        $scope.editing = null;
+                    }, (error) => {
+                        console.log(error);
+                    });
+            };
+
+
+
+
 
 
 

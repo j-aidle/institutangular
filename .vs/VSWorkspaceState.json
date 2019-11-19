@@ -2,11 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\app",
+    "\\app\\alumne",
+    "\\app\\assignatura",
+    "\\app\\header",
     "\\app\\home",
-    "\\app\\matricula",
-    "\\app\\primary",
     "\\app\\serveis"
   ],
-  "SelectedNode": "\\app\\matricula\\matricula.controller.js",
+  "SelectedNode": "\\app\\serveis\\alumnes.factory.js",
   "PreviewInSolutionExplorer": false
 }

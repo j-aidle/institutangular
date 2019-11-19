@@ -20,7 +20,6 @@ angular.module('alumne')
                     $scope.canviAlumne.nom = alumne.nom;
                     $scope.canviAlumne.cognom = alumne.cognom;
                     $scope.canviAlumne.edat = alumne.edat;
-
                 };
 
                                 

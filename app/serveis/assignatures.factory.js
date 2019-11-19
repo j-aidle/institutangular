@@ -9,6 +9,9 @@ angular.module('serveis')
             },
             delete: (data) => {
                 return $http.delete('http://localhost:50297/api/assignaturas/'+ data);
+            },
+            update: (data, content) => {
+                return $http.put('http://localhost:50297/api/assignaturas/'+ data, content);
             }
         };
         return actions;
