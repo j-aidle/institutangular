@@ -31,13 +31,16 @@
         <table>
             <tr>
                 <th>
-                    <md-button ng-click="sortBy('nom')">Nom</md-button>
+                    <md-button class="md-flat" ng-click="sortBy('nom')">Nom</md-button>
                     <span class="sortorder" ng-show="propertyName === 'nom'" ng-class="{reverse: reverse}"></span>
                 </th>
-                <th></th>
-                <th></th>
+                <th colspan="2">
+                    <md-input-container>
+                        <input type="text" placeholder="Buscar" ng-model="filtro" name="filtre" />
+                    </md-input-container>
+                </th>
             </tr>
-            <tr ng-repeat="assignatura in assignatures | orderBy:propertyName:reverse">
+            <tr ng-repeat="assignatura in assignatures | orderBy:propertyName:reverse | filter:filtro">
                 <td>
                     <p ng-if="editing != assignatura.id + 'nom'" ng-dblclick="initupdateassignatura(assignatura , 'nom')">{{assignatura.nom}}</p>
                     <input auto-focus ng-blur="unselect()" ng-if="editing == assignatura.id + 'nom'" type="text" name="assignatura.nom" ng-model="canviassignatura.nom" />

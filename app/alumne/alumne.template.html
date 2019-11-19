@@ -61,10 +61,13 @@
                         <md-button ng-click="sortBy('edat')">Edat</md-button>
                         <span class="sortorder" ng-show="propertyName === 'edat'" ng-class="{reverse: reverse}"></span>
                     </th>
-                    <th></th>
-                    <th></th>
+                    <th colspan="2">
+                        <md-input-container>
+                            <input type="text" placeholder="Buscar" ng-model="filtro" name="filtre" />
+                        </md-input-container>
+                    </th>
                 </tr>
-                <tr ng-repeat="alumne in alumnes | orderBy:propertyName:reverse">
+                <tr ng-repeat="alumne in alumnes | orderBy:propertyName:reverse | filter:filtro">
                     <td>
                         <p ng-if="editing != alumne.id + 'nom'" ng-dblclick="initupdatealum(alumne , 'nom')">{{alumne.nom}}</p>
                         <input auto-focus ng-blur="unselect()" ng-if="editing == alumne.id + 'nom'" type="text" name="alumne.nom" ng-model="canviAlumne.nom" />
