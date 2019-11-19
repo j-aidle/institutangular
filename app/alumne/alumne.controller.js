@@ -14,6 +14,12 @@ angular.module('alumne')
                     cognom: "",
                     edat: ""
                 };
+
+                $scope.unselect = () => {
+                    $scope.editing = null;
+                };
+
+
                 $scope.initupdatealum = (alumne, param) => {
                     $scope.editing = alumne.id + param;
                     $scope.canviAlumne.id = alumne.id;

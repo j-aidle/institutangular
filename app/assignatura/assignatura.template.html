@@ -30,7 +30,7 @@
                 <tr ng-repeat="assignatura in assignatures">
                     <td>
                         <p ng-if="editing != assignatura.id + 'nom'" ng-dblclick="initupdateassignatura(assignatura , 'nom')">{{assignatura.nom}}</p>
-                        <input auto-focus ng-if="editing == assignatura.id + 'nom'" type="text" name="assignatura.nom" ng-model="canviassignatura.nom" ng-blur="unselect()"/>
+                        <input auto-focus ng-blur="unselect()" ng-if="editing == assignatura.id + 'nom'" type="text" name="assignatura.nom" ng-model="canviassignatura.nom"/>
                     </td>
                     <td>
                         <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,assignatura)">

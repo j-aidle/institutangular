@@ -49,15 +49,15 @@
                 <tr ng-repeat="alumne in alumnes">
                     <td>
                         <p ng-if="editing != alumne.id + 'nom'" ng-dblclick="initupdatealum(alumne , 'nom')">{{alumne.nom}}</p>
-                        <input ng-if="editing == alumne.id + 'nom'" type="text" name="alumne.nom" ng-model="canviAlumne.nom"/>
+                        <input auto-focus ng-blur="unselect()" ng-if="editing == alumne.id + 'nom'" type="text" name="alumne.nom" ng-model="canviAlumne.nom"/>
                     </td>
                     <td>
                         <p ng-if="editing != alumne.id + 'cognom'" ng-dblclick="initupdatealum(alumne , 'cognom')">{{alumne.cognom}}</p>
-                        <input ng-if="editing == alumne.id + 'cognom'" type="text" name="alumne.cognom" ng-model="canviAlumne.cognom"/>
+                        <input auto-focus ng-blur="unselect()" ng-if="editing == alumne.id + 'cognom'" type="text" name="alumne.cognom" ng-model="canviAlumne.cognom"/>
                     </td>
                     <td>
                         <p ng-if="editing != alumne.id + 'edat'" ng-dblclick="initupdatealum(alumne , 'edat')">{{alumne.edat}}</p>
-                        <input ng-if="editing == alumne.id + 'edat'" type="text" name="alumne.edat" ng-model="canviAlumne.edat" />
+                        <input auto-focus ng-blur="unselect()" ng-if="editing == alumne.id + 'edat'" type="text" name="alumne.edat" ng-model="canviAlumne.edat" />
                     </td>
                     <td>
                         <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,alumne)">
