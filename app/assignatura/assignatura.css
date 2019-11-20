@@ -18,6 +18,12 @@ th > .md-button {
     font-weight: bold;
 }
 
+th > md-input-container {
+    padding:5px;
+    margin:10px;
+    width:85%;
+}
+
 .sortorder:after {
     content: '\25b2';
     // BLACK UP-POINTING TRIANGLE
