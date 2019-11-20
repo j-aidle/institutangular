@@ -14,6 +14,10 @@ table, th, td {
         background-color: #ffffff;
     }
 
+th > .md-button {
+    font-weight: bold;
+}
+
 .sortorder:after {
     content: '\25b2';
     // BLACK UP-POINTING TRIANGLE

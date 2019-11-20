@@ -31,11 +31,11 @@
         <table>
             <tr>
                 <th>
-                    <md-button class="md-flat" ng-click="sortBy('nom')">Nom</md-button>
+                    <md-button ng-click="sortBy('nom')">Nom</md-button>
                     <span class="sortorder" ng-show="propertyName === 'nom'" ng-class="{reverse: reverse}"></span>
                 </th>
                 <th colspan="2">
-                    <md-input-container>
+                    <md-input-container flex="100">
                         <input type="text" placeholder="Buscar" ng-model="filtro" name="filtre" />
                     </md-input-container>
                 </th>

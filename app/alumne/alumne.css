@@ -13,6 +13,10 @@ table, th, td {
     table tr:nth-child(even) {
         background-color: #ffffff;
     }
+
+th > .md-button {
+    font-weight: bold;
+}
 .sortorder:after {
     content: '\25b2';
     // BLACK UP-POINTING TRIANGLE

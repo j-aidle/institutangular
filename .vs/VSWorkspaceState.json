@@ -4,10 +4,11 @@
     "\\app",
     "\\app\\alumne",
     "\\app\\assignatura",
+    "\\app\\directives",
     "\\app\\header",
     "\\app\\home",
     "\\app\\serveis"
   ],
-  "SelectedNode": "\\app\\serveis\\alumnes.factory.js",
+  "SelectedNode": "\\app\\assignatura\\assignatura.css",
   "PreviewInSolutionExplorer": false
 }
