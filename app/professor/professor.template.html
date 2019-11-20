@@ -1,0 +1,26 @@
+<div flex layout="column" layout-align="center center">
+    <h1 class="md-display-2">Matricula</h1>
+</div>
+<div flex layout="column" layout-align="center center">
+    <p>Llista de profes</p>
+    <div layout-align="center start" layout-wrap flex>
+        <table>
+            <tr>
+                <th>
+                    <p>Nom</p>
+                </th>
+                <th>
+                    <p>Cognom</p>
+                </th>
+                <th>
+                    <p>Edat</p>
+                </th>
+            </tr>
+            <tr ng-repeat="profe in professors">
+                <td>{{profe.nom}}</td>
+                <td>{{profe.cognom}}</td>
+                <td>{{profe.edat}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
