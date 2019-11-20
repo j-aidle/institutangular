@@ -56,34 +56,34 @@ angular.module('alumne')
                     console.log(error)
                 });
 
-                $scope.postalumne = (isValid) => {
-                    if (isValid) {
-                        $scope.loading = true;
-                            var data = {
-                                nom: $scope.alumnes.nom,
-                                cognom: $scope.alumnes.cognom,
-                                edat: $scope.alumnes.edat
-                            };
-                            var config = {
-                                headers: { 'Content-Type': 'application/json' }
-                            };
+            $scope.postalumne = (isValid) => {
+                if (isValid) {
+                    $scope.loading = true;
+                    var data = {
+                        nom: $scope.alumnes.nom,
+                        cognom: $scope.alumnes.cognom,
+                        edat: $scope.alumnes.edat
+                    };
+                    var config = {
+                        headers: { 'Content-Type': 'application/json' }
+                    };
 
-                            alumnes.post(data, config).then(() => {
-                                $scope.msg = "creat";
-                                alumnes.get().then((response) => {
-                                    $scope.alumnes = response.data;
-                                    console.log(response.data);
-                                }, (error) => {
-                                    console.log(error)
-                                });
-                                resetform();
-                                $scope.loading = false;
-                            }, (error) => { console.log(error); }
+                    alumnes.post(data, config).then(() => {
+                        $scope.msg = "creat";
+                        alumnes.get().then((response) => {
+                            $scope.alumnes = response.data;
+                            console.log(response.data);
+                        }, (error) => {
+                            console.log(error)
+                        });
+                        resetform();
+                        $scope.loading = false;
+                    }, (error) => { console.log(error); }
 
-                            );
+                    );
 
-                        }
-                }   
+                };
+            };   
 
                 var destroyalumne = (alumne) => {
                     $scope.loadingdelete = alumne.id;
