@@ -4,11 +4,10 @@
     "\\app",
     "\\app\\alumne",
     "\\app\\assignatura",
-    "\\app\\directives",
     "\\app\\header",
-    "\\app\\home",
+    "\\app\\professor",
     "\\app\\serveis"
   ],
-  "SelectedNode": "\\app\\assignatura\\assignatura.css",
+  "SelectedNode": "\\app\\assignatura\\assignatura.template.html",
   "PreviewInSolutionExplorer": false
 }
