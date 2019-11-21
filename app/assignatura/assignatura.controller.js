@@ -74,7 +74,7 @@ angular.module('assignatura')
 
             var destroyassignatura = (assignatura) => {
                 $scope.loadingdelete = assignatura.id;
-                assignatures.delete(assignatura.id).then(() => {
+                assignatures.delete(assignatura.id, $scope.canviassignatura).then(() => {
                     assignatures.get().then((response) => {
                         console.log(response);
                         $scope.assignatures = response.data;

@@ -89,7 +89,6 @@ angular.module('alumne')
                     $scope.loadingdelete = alumne.id;
                     alumnes.delete(alumne.id, $scope.canviAlumne).then(
                         () => { 
-                        
                             alumnes.get().then((response) => {
                                 $scope.alumnes = response.data;
                             }, (error) => {

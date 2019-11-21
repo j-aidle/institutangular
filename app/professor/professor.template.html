@@ -50,11 +50,18 @@
                 <th>
                     <p>Edat</p>
                 </th>
+                <th></th>
             </tr>
             <tr ng-repeat="profe in professors">
                 <td>{{profe.nom}}</td>
                 <td>{{profe.cognom}}</td>
                 <td>{{profe.edat}}</td>
+                <td>
+                    <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,profe)">
+                        <div ng-if="loadingdelete != profe.id">Delete</div>
+                        <md-progress-circular class="md-accent" ng-if="loadingdelete == profe.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                    </md-button>
+                </td>
             </tr>
         </table>
     </div>
