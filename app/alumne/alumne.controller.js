@@ -16,6 +16,7 @@ angular.module('alumne')
                 $scope.loading = false;
                 $scope.loadingdelete = null;
                 $scope.loadingupdate = null;
+                let updateValid = null;
 
                 $scope.editing = null;
                 $scope.canviAlumne = {
@@ -35,6 +36,7 @@ angular.module('alumne')
                     $scope.canviAlumne.nom = alumne.nom;
                     $scope.canviAlumne.cognom = alumne.cognom;
                     $scope.canviAlumne.edat = alumne.edat;
+                    updateValid = alumne.id;
                 };
 
                                 
@@ -116,22 +118,26 @@ angular.module('alumne')
 
 
 
-                $scope.updatealumne = (alumne) => {
+            $scope.updatealumne = (alumne) => {
+                if (updateValid == alumne.id) {
                     $scope.loadingupdate = alumne.id;
                     alumnes.update(alumne.id, $scope.canviAlumne).then(
                         (response) => {
                             console.log(response);
                             alumnes.get().then((response) => {
                                 $scope.alumnes = response.data;
-                                console.log(response.data);
+                                $scope.loadingupdate = null;
+                                $scope.editing = null;
                             }, (error) => {
                                 console.log(error)
-                                });
-                            $scope.loadingupdate = null;
-                            $scope.editing = null;
+                            });
                         }, (error) => {
                             console.log(error);
+                            $scope.loadingupdate = null;
                         })
+                } else {
+                    console.log("no has editat l alumne");
+                }
                 };
 
 

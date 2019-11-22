@@ -55,13 +55,15 @@
             <tr ng-repeat="professor in professors">
                 <td>
                     <p ng-if="editing != professor.id + 'nom'" ng-dblclick="initupdateprofe(professor, 'nom')">{{professor.nom}}</p>
-                    <input auto-focus ng-blur="unselect()" ng-if="editing == professor.id + 'nom'" type="text" name="professor.nom" ng-model="canviProfessor.nom"/>
+                    <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'nom'" type="text" name="professor.nom" ng-model="canviProfessor.nom"/>
                 </td>
                 <td>
-                    {{professor.cognom}}
+                    <p ng-if="editing != professor.id + 'cognom'" ng-dblclick="initupdateprofe(professor, 'cognom')">{{professor.cognom}}</p>
+                    <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'cognom'" type="text" name="professor.cognom" ng-model="canviProfessor.cognom" />
                 </td>
                 <td>
-                    {{professor.edat}}
+                    <p ng-if="editing != professor.id + 'edat'" ng-dblclick="initupdateprofe(professor, 'edat')">{{professor.edat}}</p>
+                    <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'edat'" type="text" name="professor.edat" ng-model="canviProfessor.edat"/>
                 </td>
                 <td>
                     <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,professor)">

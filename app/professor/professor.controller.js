@@ -5,6 +5,7 @@ angular.module('professor')
         $scope.loading = false;
         $scope.loadingdelete = null;
         $scope.loadingupdate = null;
+        let updateValid = null;
 
         $scope.editing = null;
         $scope.canviProfessor = {
@@ -13,7 +14,7 @@ angular.module('professor')
              edat: ""
         };
 
-        $scope.unselect = () => {
+        $scope.unsel = () => {
             $scope.editing = null;
         };
 
@@ -23,8 +24,8 @@ angular.module('professor')
             $scope.canviProfessor.nom = professor.nom;
             $scope.canviProfessor.cognom = professor.cognom;
             $scope.canviProfessor.edat = professor.edat;
-        };
-
+            updateValid = professor.id;
+         };
 
         var resetform = function () {
             $scope.nouProfeForm.$setPristine();
@@ -38,7 +39,6 @@ angular.module('professor')
 
         professors.get().then((response) => {
             $scope.professors = response.data;
-            console.log(response.data);
         }, (error) => {
             console.log(error);
         });
@@ -102,23 +102,26 @@ angular.module('professor')
               });
         };
 
-
             $scope.updateprofessor = (professor) => {
-                $scope.loadingupdate = professor.id;
-                professors.update(professor.id, $scope.canviProfessor).then(
-                    (response) => {
-                        console.log(response);
-                        professors.get().then((response) => {
-                            $scope.professors = response.data;
-                            console.log(response.data);
+                if (updateValid == professor.id) {
+                    $scope.loadingupdate = professor.id;
+                    professors.update(professor.id, $scope.canviProfessor).then(
+                        () => {
+                            professors.get().then((response) => {
+                                $scope.professors = response.data;
+                                $scope.loadingupdate = null;
+                                $scope.editing = null;
+                            }, (error) => {
+                                console.log(error);
+                            });
                         }, (error) => {
                             console.log(error);
+                            $scope.loadingupdate = null;
                         });
-                        $scope.loadingdelete = null;
-                        $scope.editing = null;
-                }, (error) => {
-                    console.log(error);
-                });
+                }else {
+                console.log("no has editat el professor!");
+                }
+                
             };        
 
 

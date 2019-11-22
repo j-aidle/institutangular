@@ -16,6 +16,7 @@ angular.module('assignatura')
             $scope.loading = false;
             $scope.loadingdelete = null;
             $scope.loadingupdate = null;
+            let updateValid = null;
 
             $scope.editing = null;
             $scope.canviassignatura = {
@@ -30,6 +31,7 @@ angular.module('assignatura')
                 $scope.editing = assignatura.id + param;
                 $scope.canviassignatura.id = assignatura.id;
                 $scope.canviassignatura.nom = assignatura.nom;
+                updateValid = assignatura.id;
             };
 
 
@@ -101,21 +103,25 @@ angular.module('assignatura')
             };
 
             $scope.updateassignatura = (assignatura) => {
-                $scope.loadingupdate = assignatura.id;
-                assignatures.update(assignatura.id, $scope.canviassignatura).then(
-                    (response) => {
-                        console.log(response);
-                        assignatures.get().then((response) => {
+                if (updateValid == assignatura.id) {
+                    $scope.loadingupdate = assignatura.id;
+                    assignatures.update(assignatura.id, $scope.canviassignatura).then(
+                        (response) => {
                             console.log(response);
-                            $scope.assignatures = response.data;
+                            assignatures.get().then((response) => {
+                                $scope.assignatures = response.data;
+                                $scope.loadingupdate = null;
+                                $scope.editing = null;
+                            }, (error) => {
+                                console.log(error);
+                            });
                         }, (error) => {
                             console.log(error);
-                            });
-                        $scope.loadingupdate = null;
-                        $scope.editing = null;
-                    }, (error) => {
-                        console.log(error);
-                    });
+                            $scope.loadingupdate = null;
+                        });
+                } else {
+                    console.log("no has editat l assignatura");
+                }
             };
 
 
