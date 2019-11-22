@@ -46,8 +46,8 @@ angular.module('alumne')
                     $scope.nouAlumneForm.nom.$untouched = true;
                     $scope.nouAlumneForm.cognom.$touched = false;
                     $scope.nouAlumneForm.cognom.$untouched = true;
-                    $scope.nouAlumneForm.Edat.$touched = false;
-                    $scope.nouAlumneForm.Edat.$untouched = true;
+                    $scope.nouAlumneForm.edat.$touched = false;
+                    $scope.nouAlumneForm.edat.$untouched = true;
                 }; 
 
 
