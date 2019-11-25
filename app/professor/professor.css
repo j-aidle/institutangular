@@ -5,8 +5,6 @@ table, th, td {
     text-align: center;
 }
 
-
-
     table tr:nth-child(odd) {
         //background-color: #f2f2f2;
         background-color: #e1eaf2;
@@ -16,20 +14,19 @@ table, th, td {
         background-color: #ffffff;
     }
 
-th > .md-button {
-    font-weight: bold;
-}
-
-th > md-input-container {
-    padding:5px;
-    margin:10px;
-    width:85%;
-}
-
-    td > input {
-    width:6em;
+    th > .md-button {
+        font-weight: bold;
     }
 
+    th > md-input-container {
+        padding: 5px;
+        margin: 10px;
+        width: 5em;
+    }
+
+    td > input {
+        width: 6em;
+    }
 
 .sortorder:after {
     content: '\25b2';

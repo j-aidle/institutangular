@@ -1,8 +1,8 @@
 angular.module('header')
     .controller('headerController', function headerController($scope, $mdSidenav, $state) {
+        $scope.currentNavItem = 'layout.home';
 
         $scope.selectedItem = $state.current.name;
-
         $scope.toggleMenu = buildToggler('left');
 
         function buildToggler(componentId) {

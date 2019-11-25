@@ -20,8 +20,12 @@ th > .md-button {
 th > md-input-container {
     padding: 5px;
     margin: 10px;
-    width: 85%;
-}    
+    width: 5em;
+}
+
+    td > input {
+        width: 6em;
+    }
 
 .sortorder:after {
     content: '\25b2';
@@ -32,3 +36,5 @@ th > md-input-container {
     content: '\25bc';
     // BLACK DOWN-POINTING TRIANGLE
 }
+
+
