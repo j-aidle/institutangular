@@ -21,9 +21,8 @@ table, th, td {
     th > md-input-container {
         padding: 5px;
         margin: 10px;
-        width: 5em;
+        width: 85%;
     }
-
     td > input {
         width: 6em;
     }

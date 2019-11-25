@@ -17,11 +17,11 @@ table, th, td {
 th > .md-button {
     font-weight: bold;
 }
-th > md-input-container {
-    padding: 5px;
-    margin: 10px;
-    width: 5em;
-}
+    th > md-input-container {
+        padding: 5px;
+        margin: 10px;
+        width: 85%;
+    }
 
     td > input {
         width: 6em;

@@ -25,7 +25,9 @@ th > md-input-container {
     margin:10px;
     width:85%;
 }
-
+td {
+    height: 4em;
+}
     td > input {
     width:6em;
     }
