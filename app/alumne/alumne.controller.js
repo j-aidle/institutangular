@@ -80,6 +80,7 @@ angular.module('alumne')
                         });
                         resetform();
                         $scope.loading = false;
+                        Toast('s\'ha creat correctament!!');
                     }, (error) => { console.log(error); }
 
                     );
@@ -182,20 +183,15 @@ angular.module('alumne')
                     last = angular.extend({}, current);
                 }
 
-                var showSimpleToast = () => {
-                    var pinTo = getToastPosition();
+            var Toast = function (missatge, classe) {
+                var pinTo = getToastPosition();
 
-                    $mdToast.show(
-                        $mdToast.simple()
-                            .textContent('S\'ha creat l\'alumne!')
-                            .position(pinTo)
-                            .hideDelay(3000))
-                        .then(function () {
-                            console.log('Toast dismissed.');
-                        }).catch(function () {
-                            console.log('Toast failed or was forced to close early by another toast.');
-                        });
-                };
+                $mdToast.show(
+                    $mdToast.simple()
+                        .textContent(missatge)
+                        .position(pinTo)
+                        .hideDelay(3000));
+            };
 
 
 
