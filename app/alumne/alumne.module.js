@@ -1,1 +1,1 @@
-angular.module('alumne', ['serveis','directives'])
+angular.module('alumne', ['serveis', 'directives', 'ngMaterial'])

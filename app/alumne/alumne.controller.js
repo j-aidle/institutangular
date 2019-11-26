@@ -40,14 +40,14 @@ angular.module('alumne')
                 };
 
                                 
-                var resetform = function () {
-                    $scope.nouAlumneForm.$setPristine();
-                    $scope.nouAlumneForm.nom.$touched = false;
-                    $scope.nouAlumneForm.nom.$untouched = true;
-                    $scope.nouAlumneForm.cognom.$touched = false;
-                    $scope.nouAlumneForm.cognom.$untouched = true;
-                    $scope.nouAlumneForm.edat.$touched = false;
-                    $scope.nouAlumneForm.edat.$untouched = true;
+            var resetform = function () {
+                $scope.nouAlumneForm.$setPristine();
+                $scope.nouAlumneForm.nom.$untouched = true;
+                $scope.nouAlumneForm.nom.$touched = false;
+                $scope.nouAlumneForm.cognom.$untouched = true;    
+                $scope.nouAlumneForm.cognom.$touched = false;
+                $scope.nouAlumneForm.edat.$untouched = true;
+                $scope.nouAlumneForm.edat.$touched = false;
                 }; 
 
 
@@ -183,7 +183,7 @@ angular.module('alumne')
                     last = angular.extend({}, current);
                 }
 
-            var Toast = function (missatge, classe) {
+                var Toast = function (missatge, classe) {
                 var pinTo = getToastPosition();
 
                 $mdToast.show(

@@ -1,10 +1,10 @@
 'use strict';
 
 // Declare app level module which depends on views, and core components
-angular.module('App', ['ui.router', 'ngMaterial', 'home', 'header', 'primary', 'serveis', 'alumne','assignatura','professor','directives'])
+angular.module('App', ['ui.router', 'ngMaterial', 'ngMessages', 'home', 'header', 'primary', 'serveis', 'alumne','assignatura','professor','directives'])
     .config(['$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($stateProvider, $urlRouterProvider,$mdThemingProvider) {
-        $stateProvider.state('layout', {
-            url: '',
+        $stateProvider.state('landing-page', {
+            url: '/',
             views: {
                 'header': {
                     templateUrl: './header/header.template.html',
@@ -20,37 +20,37 @@ angular.module('App', ['ui.router', 'ngMaterial', 'home', 'header', 'primary', '
                 }
             }
         })
-        $stateProvider.state('layout.home', {
-            url: '/home',
+        $stateProvider.state('landing-page.home', {
+            url: 'home',
             views: {
-                home: {
+                'primaryx': {
                     templateUrl: './home/home.template.html',
                     controller: 'homeController'
                 }
             }
         });
-        $stateProvider.state('layout.alumne', {
-            url: '/alumne',
+        $stateProvider.state('landing-page.alumne', {
+            url: 'alumne',
             views: {
-                home: {
+                'primaryx': {
                     templateUrl: './alumne/alumne.template.html',
                     controller: 'alumneController'
                 }
             }
         });
-        $stateProvider.state('layout.assignatura', {
-            url: '/assignatura',
+        $stateProvider.state('landing-page.assignatura', {
+            url: 'assignatura',
             views: {
-                home: {
+                'primaryx': {
                     templateUrl: './assignatura/assignatura.template.html',
                     controller: 'assignaturaController'
                 }
             }
         });
-        $stateProvider.state('layout.professor', {
-            url: '/professor',
+        $stateProvider.state('landing-page.professor', {
+            url: 'professor',
             views: {
-                home: {
+                'primaryx': {
                     templateUrl: './professor/professor.template.html',
                     controller: 'professorController'
                 }

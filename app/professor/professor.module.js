@@ -1,1 +1,1 @@
-angular.module('professor',['serveis','directives']);
+angular.module('professor', ['serveis', 'directives', 'ngMaterial']);

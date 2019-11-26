@@ -37,8 +37,8 @@ angular.module('assignatura')
 
             var resetformAssignatures = function () {
                 $scope.novaAssignaturaForm.$setPristine();
-                $scope.novaAssignaturaForm.nom.$touched = false;
                 $scope.novaAssignaturaForm.nom.$untouched = true;
+                $scope.novaAssignaturaForm.nom.$touched = false;
             };
 
             assignatures.get().then((response) => {
@@ -54,7 +54,7 @@ angular.module('assignatura')
                     $scope.loading = true;
                     var data = {
                         nom: $scope.assignatures.nom
-                    };
+                    }; 
                     var config = {
                         headers: { 'Content-Type': 'application/json' }
                     };
