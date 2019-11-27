@@ -1,0 +1,23 @@
+<div flex layout="column" layout-align="center center">
+    <h1 class="md-display-2">Matricula</h1>
+
+</div>
+<div flex layout="column" layout-align="center center">
+    <p>Llistat</p>
+    <table>
+        <tr>
+            <th>Nom Alumne</th>
+            <th>Cognom Alumne</th>
+            <th>Nom Professor</th>
+            <th>Cognom Professor</th>
+            <th>Nom Assignatura</th>
+        </tr>
+        <tr ng-repeat="dada in dades">
+            <td><p>{{dada.alumne.nom}}</p></td>
+            <td><p>{{dada.alumne.cognom}}</p></td>
+            <td><p>{{dada.professor.nom}}</p></td>
+            <td><p>{{dada.professor.cognom}}</p></td>
+            <td><p>{{dada.assignatura.nom}}</p></td>
+        </tr>
+    </table>
+</div>

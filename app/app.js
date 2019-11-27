@@ -1,8 +1,9 @@
 'use strict';
 
 // Declare app level module which depends on views, and core components
-angular.module('App', ['ui.router', 'ngMaterial', 'ngMessages', 'home', 'header', 'primary', 'serveis', 'alumne','assignatura','professor','directives'])
+angular.module('App', ['ui.router', 'ngMaterial', 'ngMessages', 'home', 'header', 'primary', 'serveis', 'alumne','assignatura','professor','gestio','directives'])
     .config(['$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($stateProvider, $urlRouterProvider,$mdThemingProvider) {
+
         $stateProvider.state('landing-page', {
             url: '/',
             views: {
@@ -56,9 +57,17 @@ angular.module('App', ['ui.router', 'ngMaterial', 'ngMessages', 'home', 'header'
                 }
             }
         });
+        $stateProvider.state('landing-page.gestio', {
+            url: 'gestio',
+            views: {
+                'primaryx': {
+                    templateUrl: './gestio/gestio.template.html',
+                    controller: 'gestioController'
+                }
+            }
+        });
 
-
-        $urlRouterProvider.otherwise('home');
+        $urlRouterProvider.otherwise('/');
         $mdThemingProvider.theme('default').primaryPalette('blue')
             .accentPalette('teal')
             .warnPalette('red')

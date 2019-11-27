@@ -5,9 +5,11 @@
     "\\app\\alumne",
     "\\app\\assignatura",
     "\\app\\header",
+    "\\app\\home",
+    "\\app\\primary",
     "\\app\\professor",
     "\\app\\serveis"
   ],
-  "SelectedNode": "\\app\\alumne\\alumne.module.js",
+  "SelectedNode": "\\app\\header\\header.controller.js",
   "PreviewInSolutionExplorer": false
 }
