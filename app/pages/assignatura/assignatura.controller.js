@@ -94,7 +94,7 @@ angular.module('assignatura')
             $scope.confirmDelete = (ev, assignatura) => {
                 var confirm = $mdDialog.confirm()
                     .title('Estas segur que vols esborrar-lo? ID Assignatura: ' + assignatura.id)
-                    .textContent('L assignatura que has seleccionat serà esborrada permanentment.')
+                    .textContent('L\'assignatura que has seleccionat serà esborrada permanentment.')
                     .ariaLabel('Esborrar assignatura')
                     .targetEvent(ev)
                     .ok('Si')

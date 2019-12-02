@@ -5,7 +5,7 @@
             <h2 class="md-headline">Crear nou Alumne</h2>
             <md-input-container class="md-block">
                 <label>Nom</label>
-                <input type="text" md-maxlength="20" required name="Nom" ng-model="alumnes.nom">
+                <input type="text" md-maxlength="20" required name="nom" ng-model="alumnes.nom">
                 <div ng-messages="nouAlumneForm.Nom.$error">
                     <div ng-message="required">Aquest camp és requerit.</div>
                     <div ng-message="md-maxlength">El nom  no pot passar de 20 caràcters</div>
@@ -13,7 +13,7 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Cognom</label>
-                <input type="text" md-maxlength="40" required name="Cognom" ng-model="alumnes.cognom">
+                <input type="text" md-maxlength="40" required name="cognom" ng-model="alumnes.cognom">
                 <div ng-messages="nouAlumneForm.Cognom.$error">
                     <div ng-message="required">Aquest camp és requerit.</div>
                     <div ng-message="md-maxlength">El nom  no pot passar de 40 caràcters</div>
@@ -21,7 +21,7 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Edat</label>
-                <input type="number" md-maxlength="3" required name="Edat" ng-model="alumnes.edat">
+                <input type="number" md-maxlength="3" required name="edat" ng-model="alumnes.edat">
                 <div ng-messages="nouAlumneForm.Edat.$error">
                     <div ng-message="required">Aquest camp és requerit.</div>
                     <div ng-message="md-maxlength">No pots posar més de 3 numeros</div>
