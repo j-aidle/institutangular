@@ -1,32 +1,35 @@
 {
-  "_from": "angular-ui-router",
+  "_args": [
+    [
+      "angular-ui-router@1.0.23",
+      "C:\\Users\\dijvega\\institut"
+    ]
+  ],
+  "_from": "angular-ui-router@1.0.23",
   "_id": "angular-ui-router@1.0.23",
   "_inBundle": false,
   "_integrity": "sha512-l1bzkqCtcP9CrhlFQ0vJ8pGAfwF/bxRedCO2yB3HCYdrDkf487/ZNSreYc2jR5t9rgF/6oM++ZplCcCFMxRoWg==",
   "_location": "/angular-ui-router",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "angular-ui-router",
+    "raw": "angular-ui-router@1.0.23",
     "name": "angular-ui-router",
     "escapedName": "angular-ui-router",
-    "rawSpec": "",
+    "rawSpec": "1.0.23",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "1.0.23"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/angular-ui-router/-/angular-ui-router-1.0.23.tgz",
-  "_shasum": "c0af56dbe930faa5963cdcb133401e6744e1f9a8",
-  "_spec": "angular-ui-router",
+  "_spec": "1.0.23",
   "_where": "C:\\Users\\dijvega\\institut",
   "bugs": {
     "url": "https://github.com/angular-ui/ui-router/issues"
   },
-  "bundleDependencies": false,
   "contributors": [
     {
       "name": "Nate Abele",
@@ -49,7 +52,6 @@
   "dependencies": {
     "@uirouter/core": "6.0.1"
   },
-  "deprecated": false,
   "description": "State-based routing for AngularJS 1.x",
   "devDependencies": {
     "@types/angular": "1.6.54",

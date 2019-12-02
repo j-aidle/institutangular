@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>App</title>
+    <link rel="icon" type="icon" href="./img/favicon/school-24px.svg">
+    <title>Insti App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
@@ -23,42 +24,52 @@
     <script src="lib/angular-route/angular-route.js"></script>
     <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
 
+    <!--jquery lib (dependencia DevExtreme)-->
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+
+    <!--DevExtreme lib-->
+    <script type="text/javascript" src="node_modules/devextreme/dist/js/dx.all.js"></script>
+
+    <!-- DevExtreme themes -->
+    <link rel="stylesheet" type="text/css" href="node_modules/devextreme/dist/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="node_modules/devextreme/dist/css/dx.light.css" />
+
     <!--myApp references-->
     <link rel="stylesheet" href="app.css">
     <script src="app.js"></script>
     <script src="core/version/version.js"></script>
     <script src="core/version/version-directive.js"></script>
     <script src="core/version/interpolate-filter.js"></script>
-    <script src="./home/home.module.js"></script>
-    <script src="./home/home.controller.js"></script>
-    <script src="./header/header.module.js"></script>
-    <script src="./header/header.controller.js"></script>
-    <script src="./primary/primary.module.js"></script>
-    <script src="./primary/primary.controller.js"></script>
+    <script src="./pages/home/home.module.js"></script>
+    <script src="./pages/home/home.controller.js"></script>
+    <script src="./pages/header/header.module.js"></script>
+    <script src="./pages/header/header.controller.js"></script>
+    <script src="./pages/landingPage/landingPage.module.js"></script>
+    <script src="./pages/landingPage/landingPage.controller.js"></script>
     <script src="./serveis/serveis.module.js"></script>
     <script src="./serveis/alumnes.factory.js"></script>
     <script src="./serveis/assignatures.factory.js"></script>
     <script src="./serveis/professors.factory.js"></script>
     <script src="./serveis/gestio.factory.js"></script>
-    <script src="./alumne/alumne.module.js"></script>
-    <script src="./alumne/alumne.controller.js"></script>
-    <link rel="stylesheet" href="/alumne/alumne.css">
-    <script src="./assignatura/assignatura.module.js"></script>
-    <script src="./assignatura/assignatura.controller.js"></script>
-    <link rel="stylesheet" href="/assignatura/assignatura.css">
+    <script src="./pages/alumne/alumne.module.js"></script>
+    <script src="./pages/alumne/alumne.controller.js"></script>
+    <link rel="stylesheet" href="/pages/alumne/alumne.css">
+    <script src="./pages/assignatura/assignatura.module.js"></script>
+    <script src="./pages/assignatura/assignatura.controller.js"></script>
+    <link rel="stylesheet" href="/pages/assignatura/assignatura.css">
     <script src="./directives/directives.module.js"></script>
     <script src="./directives/autofocus.directives.js"></script>
-    <script src="./professor/professor.module.js"></script>
-    <script src="./professor/professor.controller.js"></script>
-    <link rel="stylesheet" href="/professor/professor.css">
-    <script src="./gestio/gestio.module.js"></script>
-    <script src="./gestio/gestio.controller.js"></script>
+    <script src="./pages/professor/professor.module.js"></script>
+    <script src="./pages/professor/professor.controller.js"></script>
+    <link rel="stylesheet" href="/pages/professor/professor.css">
+    <script src="./pages/gestio/gestio.module.js"></script>
+    <script src="./pages/gestio/gestio.controller.js"></script>
 
 
 </head>
 <body>
     <div ui-view="header"></div>
     <div ui-view="menu"></div>
-    <div ui-view="primary"></div>
+    <div ui-view="primary" layout-padding></div>
 </body>
 </html>

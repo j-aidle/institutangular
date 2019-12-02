@@ -1,27 +1,31 @@
 {
-  "_from": "angular@^1.7.5",
+  "_args": [
+    [
+      "angular@1.7.9",
+      "C:\\Users\\dijvega\\institut"
+    ]
+  ],
+  "_from": "angular@1.7.9",
   "_id": "angular@1.7.9",
   "_inBundle": false,
   "_integrity": "sha512-5se7ZpcOtu0MBFlzGv5dsM1quQDoDeUTwZrWjGtTNA7O88cD8TEk5IEKCTDa3uECV9XnvKREVUr7du1ACiWGFQ==",
   "_location": "/angular",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "angular@^1.7.5",
+    "raw": "angular@1.7.9",
     "name": "angular",
     "escapedName": "angular",
-    "rawSpec": "^1.7.5",
+    "rawSpec": "1.7.9",
     "saveSpec": null,
-    "fetchSpec": "^1.7.5"
+    "fetchSpec": "1.7.9"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/angular/-/angular-1.7.9.tgz",
-  "_shasum": "e52616e8701c17724c3c238cfe4f9446fd570bc4",
-  "_spec": "angular@^1.7.5",
+  "_spec": "1.7.9",
   "_where": "C:\\Users\\dijvega\\institut",
   "author": {
     "name": "Angular Core Team",
@@ -30,8 +34,6 @@
   "bugs": {
     "url": "https://github.com/angular/angular.js/issues"
   },
-  "bundleDependencies": false,
-  "deprecated": false,
   "description": "HTML enhanced for web apps",
   "homepage": "http://angularjs.org",
   "keywords": [

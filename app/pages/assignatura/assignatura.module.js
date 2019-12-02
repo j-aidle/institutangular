@@ -1,0 +1,1 @@
+angular.module('assignatura', ['serveis', 'directives','dx', 'ngMaterial']);

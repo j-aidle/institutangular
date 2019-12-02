@@ -4,12 +4,10 @@
     "\\app",
     "\\app\\alumne",
     "\\app\\assignatura",
+    "\\app\\gestio",
     "\\app\\header",
-    "\\app\\home",
-    "\\app\\primary",
-    "\\app\\professor",
     "\\app\\serveis"
   ],
-  "SelectedNode": "\\app\\header\\header.controller.js",
+  "SelectedNode": "\\app\\assignatura\\formassignatura.html",
   "PreviewInSolutionExplorer": false
 }

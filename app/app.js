@@ -1,23 +1,23 @@
 'use strict';
 
 // Declare app level module which depends on views, and core components
-angular.module('App', ['ui.router', 'ngMaterial', 'ngMessages', 'home', 'header', 'primary', 'serveis', 'alumne','assignatura','professor','gestio','directives'])
+angular.module('App', ['ui.router', 'ngMaterial', 'ngMessages', 'home', 'header', 'landing-page', 'serveis', 'alumne','assignatura','professor','gestio','directives'])
     .config(['$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($stateProvider, $urlRouterProvider,$mdThemingProvider) {
 
         $stateProvider.state('landing-page', {
             url: '/',
             views: {
                 'header': {
-                    templateUrl: './header/header.template.html',
+                    templateUrl: './pages/header/header.template.html',
                     controller: 'headerController'
                 },
                 'menu': {
-                    templateUrl: './header/menu.template.html',
+                    templateUrl: './pages/header/menu.template.html',
                     controller: 'headerController'
                 },
                 'primary': {
-                    templateUrl: './primary/primary.template.html',
-                    controller: 'primaryController'
+                    templateUrl: './pages/landingPage/landingPage.template.html',
+                    controller: 'landingPageController'
                 }
             }
         })
@@ -25,7 +25,7 @@ angular.module('App', ['ui.router', 'ngMaterial', 'ngMessages', 'home', 'header'
             url: 'home',
             views: {
                 'primaryx': {
-                    templateUrl: './home/home.template.html',
+                    templateUrl: './pages/home/home.template.html',
                     controller: 'homeController'
                 }
             }
@@ -34,7 +34,7 @@ angular.module('App', ['ui.router', 'ngMaterial', 'ngMessages', 'home', 'header'
             url: 'alumne',
             views: {
                 'primaryx': {
-                    templateUrl: './alumne/alumne.template.html',
+                    templateUrl: './pages/alumne/alumne.template.html',
                     controller: 'alumneController'
                 }
             }
@@ -43,7 +43,7 @@ angular.module('App', ['ui.router', 'ngMaterial', 'ngMessages', 'home', 'header'
             url: 'assignatura',
             views: {
                 'primaryx': {
-                    templateUrl: './assignatura/assignatura.template.html',
+                    templateUrl: './pages/assignatura/assignatura.template.html',
                     controller: 'assignaturaController'
                 }
             }
@@ -52,7 +52,7 @@ angular.module('App', ['ui.router', 'ngMaterial', 'ngMessages', 'home', 'header'
             url: 'professor',
             views: {
                 'primaryx': {
-                    templateUrl: './professor/professor.template.html',
+                    templateUrl: './pages/professor/professor.template.html',
                     controller: 'professorController'
                 }
             }
@@ -61,13 +61,14 @@ angular.module('App', ['ui.router', 'ngMaterial', 'ngMessages', 'home', 'header'
             url: 'gestio',
             views: {
                 'primaryx': {
-                    templateUrl: './gestio/gestio.template.html',
+                    templateUrl: './pages/gestio/gestio.template.html',
                     controller: 'gestioController'
                 }
             }
         });
 
         $urlRouterProvider.otherwise('/');
+
         $mdThemingProvider.theme('default').primaryPalette('blue')
             .accentPalette('teal')
             .warnPalette('red')
