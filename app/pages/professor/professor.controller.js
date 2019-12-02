@@ -74,7 +74,7 @@ angular.module('professor')
                     });
                     resetform();
                     $scope.loading = false;
-                    Toast('s\'ha creat correctament!!');
+                    ToastCreate();
                 }, (error) => { console.log(error); }
 
                 );
@@ -87,8 +87,9 @@ angular.module('professor')
              professors.delete(professor.id).then(
                 () => {
                      professors.get().then((response) => {
-                          $scope.professors = response.data;
-                          console.log(response.data);
+                         $scope.professors = response.data;
+                         console.log(response.data);
+                         ToastDelete();
                      }, (error) => {
                           console.log(error);
                      });
@@ -121,6 +122,7 @@ angular.module('professor')
                                 $scope.professors = response.data;
                                 $scope.loadingupdate = null;
                                 $scope.editing = null;
+                                ToastUpdate();
                             }, (error) => {
                                 console.log(error);
                             });
@@ -173,15 +175,39 @@ angular.module('professor')
                 last = angular.extend({}, current);
             }
 
-            var Toast = function (missatge, classe) {
+            var ToastCreate = function () {
                 var pinTo = getToastPosition();
 
                 $mdToast.show(
                     $mdToast.simple()
-                        .textContent(missatge)
+                        .textContent('S\'ha creat el professor!')
                         .position(pinTo)
+                        .toastClass('md-error')
                         .hideDelay(3000));
             };
+
+            var ToastDelete = function () {
+                var pinTo = getToastPosition();
+
+                $mdToast.show(
+                    $mdToast.simple()
+                        .textContent('S\'ha esborrat el professor!')
+                        .position(pinTo)
+                        .toastClass('md-error')
+                        .hideDelay(3000));
+            };
+
+            var ToastUpdate = function () {
+                var pinTo = getToastPosition();
+
+                $mdToast.show(
+                    $mdToast.simple()
+                        .textContent('S\'ha actualitzat el professor!')
+                        .position(pinTo)
+                        .toastClass('md-error')
+                        .hideDelay(3000));
+            };
+
 
 
     }]);

@@ -75,12 +75,12 @@ angular.module('alumne')
                         alumnes.get().then((response) => {
                             $scope.alumnes = response.data;
                             console.log(response.data);
+                            ToastCreate();
                         }, (error) => {
                             console.log(error)
                         });
                         resetform();
                         $scope.loading = false;
-                        Toast('s\'ha creat correctament!!');
                     }, (error) => { console.log(error); }
 
                     );
@@ -94,6 +94,7 @@ angular.module('alumne')
                         () => { 
                             alumnes.get().then((response) => {
                                 $scope.alumnes = response.data;
+                                ToastDelete();
                             }, (error) => {
                                 console.log(error)
                                 });
@@ -129,6 +130,7 @@ angular.module('alumne')
                                 $scope.alumnes = response.data;
                                 $scope.loadingupdate = null;
                                 $scope.editing = null;
+                                ToastUpdate();
                             }, (error) => {
                                 console.log(error)
                             });
@@ -183,13 +185,36 @@ angular.module('alumne')
                     last = angular.extend({}, current);
                 }
 
-                var Toast = function (missatge, classe) {
+            var ToastCreate = function () {
                 var pinTo = getToastPosition();
 
                 $mdToast.show(
                     $mdToast.simple()
-                        .textContent(missatge)
+                        .textContent('S\'ha creat l\'alumne!')
                         .position(pinTo)
+                        .toastClass('md-error')
+                        .hideDelay(3000));
+            };
+
+            var ToastDelete = function () {
+                var pinTo = getToastPosition();
+
+                $mdToast.show(
+                    $mdToast.simple()
+                        .textContent('S\'ha esborrat l\'alumne!')
+                        .position(pinTo)
+                        .toastClass('md-error')
+                        .hideDelay(3000));
+            };
+
+            var ToastUpdate = function () {
+                var pinTo = getToastPosition();
+
+                $mdToast.show(
+                    $mdToast.simple()
+                        .textContent('S\'ha actualitzat l\'alumne!')
+                        .position(pinTo)
+                        .toastClass('md-error')
                         .hideDelay(3000));
             };
 

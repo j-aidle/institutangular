@@ -4,8 +4,11 @@ angular.module('header')
 
         $scope.selectedItem = $state.current.name;
 
-        $scope.$watch('selected', $scope.selectedItem  );
-
+        $scope.$watch(function () {
+            return $state.current.name;
+        }, function (newValue, oldValue) {
+            $scope.selectedItem = newValue;
+        });
 
         $scope.toggleMenu = buildToggler('left');
 
