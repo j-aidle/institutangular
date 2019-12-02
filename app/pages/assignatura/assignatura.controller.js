@@ -63,11 +63,11 @@ angular.module('assignatura')
                         assignatures.get().then((response) => {
                             console.log(response);
                             $scope.assignatures = response.data;
-                            ToastCreate();
                         }, (error) => {
                             console.log(error);
                             }
                         );
+                        ToastCreate();
                         resetformAssignatures();
                         $scope.loading = false;
                         //$mdDialog.hide();                        
