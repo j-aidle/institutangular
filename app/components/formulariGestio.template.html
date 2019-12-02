@@ -3,26 +3,26 @@
         <h2 class="md-headline">Crear nova Matricula</h2>
         <md-input-container class="md-block">
             <label>Alumne ID</label>
-            <input type="text" md-maxlength="20" required name="nom" ng-model="novaGestio.alumneid">
+            <input type="text" :ng-pattern="/[0-9]{3}/" md-maxlength="3" required name="nom" ng-model="novaGestio.alumneid">
             <div ng-messages="novaGestioForm.alumneid.$error">
                 <div ng-message="required">Aquest camp és requerit.</div>
-                <div ng-message="md-maxlength">El nom  no pot passar de 20 caràcters</div>
+                <div ng-message="md-maxlength">El nom  no pot passar de 3 caràcters</div>
             </div>
         </md-input-container>
         <md-input-container class="md-block">
             <label>Professor ID</label>
-            <input type="text" md-maxlength="40" required name="cognom" ng-model="novaGestio.professorid">
+            <input type="text" :ng-pattern="/[0-9]{3}/" md-maxlength="3" required name="cognom" ng-model="novaGestio.professorid">
             <div ng-messages="novaGestioForm.professorid.$error">
                 <div ng-message="required">Aquest camp és requerit.</div>
-                <div ng-message="md-maxlength">El nom  no pot passar de 40 caràcters</div>
+                <div ng-message="md-maxlength">El nom  no pot passar de 3 caràcters</div>
             </div>
         </md-input-container>
         <md-input-container class="md-block">
             <label>Assignatura ID</label>
-            <input type="text" md-maxlength="40" required name="cognom" ng-model="novaGestio.assignaturaid">
+            <input type="text" :ng-pattern="/[0-9]{3}/" md-maxlength="3" required name="cognom" ng-model="novaGestio.assignaturaid">
             <div ng-messages="novaGestioForm.assignaturaid.$error">
                 <div ng-message="required">Aquest camp és requerit.</div>
-                <div ng-message="md-maxlength">El nom  no pot passar de 40 caràcters</div>
+                <div ng-message="md-maxlength">El nom  no pot passar de 3 caràcters</div>
             </div>
         </md-input-container>
         <div>
