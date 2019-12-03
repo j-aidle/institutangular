@@ -2,14 +2,14 @@ angular.module('professor')
     .controller('professorController', ['$scope', '$mdDialog', '$mdToast', 'professors',
         function professorController($scope, $mdDialog, $mdToast, professors) {
 
-            //this.orderProp = 'id';
-            $scope.propertyName = 'edat';
-            $scope.reverse = true;
+        //this.orderProp = 'id';
+        $scope.propertyName = 'edat';
+        $scope.reverse = true;
 
-            $scope.sortBy = function (propertyName) {
-                $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
-                $scope.propertyName = propertyName;
-            };
+        $scope.sortBy = function (propertyName) {
+            $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+            $scope.propertyName = propertyName;
+        };
 
         $scope.loading = false;
         $scope.loadingdelete = null;
@@ -113,100 +113,100 @@ angular.module('professor')
               });
         };
 
-            $scope.updateprofessor = (professor) => {
-                if (updateValid == professor.id) {
-                    $scope.loadingupdate = professor.id;
-                    professors.update(professor.id, $scope.canviProfessor).then(
-                        () => {
-                            professors.get().then((response) => {
-                                $scope.professors = response.data;
-                                $scope.loadingupdate = null;
-                                $scope.editing = null;
-                                ToastUpdate();
-                            }, (error) => {
-                                console.log(error);
-                            });
+        $scope.updateprofessor = (professor) => {
+            if (updateValid == professor.id) {
+                $scope.loadingupdate = professor.id;
+                professors.update(professor.id, $scope.canviProfessor).then(
+                    () => {
+                        professors.get().then((response) => {
+                            $scope.professors = response.data;
+                            $scope.loadingupdate = null;
+                            $scope.editing = null;
+                            ToastUpdate();
                         }, (error) => {
                             console.log(error);
-                            $scope.loadingupdate = null;
                         });
-                }else {
-                console.log("no has editat el professor!");
-                }
+                    }, (error) => {
+                        console.log(error);
+                        $scope.loadingupdate = null;
+                    });
+            }else {
+            console.log("no has editat el professor!");
+            }
                 
-            };        
+        };        
 
-            // TOAST
+        // TOAST
 
-            var last = {
-                bottom: false,
-                top: true,
-                left: false,
-                right: true
-            };
+        var last = {
+            bottom: false,
+            top: true,
+            left: false,
+            right: true
+        };
 
-            var toastPosition = angular.extend({}, last);
+        var toastPosition = angular.extend({}, last);
 
-            var getToastPosition = () => {
-                sanitizePosition();
+        var getToastPosition = () => {
+            sanitizePosition();
 
-                return Object.keys(toastPosition)
-                    .filter(function (pos) {
-                        return toastPosition[pos];
-                    }).join(' ');
-            };
+            return Object.keys(toastPosition)
+                .filter(function (pos) {
+                    return toastPosition[pos];
+                }).join(' ');
+        };
 
-            var sanitizePosition = () => {
-                var current = toastPosition;
+        var sanitizePosition = () => {
+            var current = toastPosition;
 
-                if (current.bottom && last.top) {
-                    current.top = false;
-                }
-                if (current.top && last.bottom) {
-                    current.bottom = false;
-                }
-                if (current.right && last.left) {
-                    current.left = false;
-                }
-                if (current.left && last.right) {
-                    current.right = false;
-                }
-
-                last = angular.extend({}, current);
+            if (current.bottom && last.top) {
+                current.top = false;
+            }
+            if (current.top && last.bottom) {
+                current.bottom = false;
+            }
+            if (current.right && last.left) {
+                current.left = false;
+            }
+            if (current.left && last.right) {
+                current.right = false;
             }
 
-            var ToastCreate = function () {
-                var pinTo = getToastPosition();
+            last = angular.extend({}, current);
+        }
 
-                $mdToast.show(
-                    $mdToast.simple()
-                        .textContent('S\'ha creat el professor!')
-                        .position(pinTo)
-                        .toastClass('md-error')
-                        .hideDelay(3000));
-            };
+        var ToastCreate = function () {
+            var pinTo = getToastPosition();
 
-            var ToastDelete = function () {
-                var pinTo = getToastPosition();
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent('S\'ha creat el professor!')
+                    .position(pinTo)
+                    .toastClass('md-error')
+                    .hideDelay(3000));
+        };
 
-                $mdToast.show(
-                    $mdToast.simple()
-                        .textContent('S\'ha esborrat el professor!')
-                        .position(pinTo)
-                        .toastClass('md-error')
-                        .hideDelay(3000));
-            };
+        var ToastDelete = function () {
+            var pinTo = getToastPosition();
 
-            var ToastUpdate = function () {
-                var pinTo = getToastPosition();
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent('S\'ha esborrat el professor!')
+                    .position(pinTo)
+                    .toastClass('md-error')
+                    .hideDelay(3000));
+        };
 
-                $mdToast.show(
-                    $mdToast.simple()
-                        .textContent('S\'ha actualitzat el professor!')
-                        .position(pinTo)
-                        .toastClass('md-error')
-                        .hideDelay(3000));
-            };
+        var ToastUpdate = function () {
+            var pinTo = getToastPosition();
+
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent('S\'ha actualitzat el professor!')
+                    .position(pinTo)
+                    .toastClass('md-error')
+                    .hideDelay(3000));
+        };
 
 
 

@@ -20,21 +20,34 @@
             <th>Cognom Professor</th>
             <th>ID Assignatura</th>
             <th>Nom Assignatura</th>
-            <th></th>
+            <th colspan="2"></th>
         </tr>
         <tr ng-repeat="dada in dades">
-            <td><p>{{dada.alumne.id}}</p></td>
+            <td>
+                <p ng-if="editing != dada.id + 'alumneid'" ng-dblclick="initupdategestio(dada, 'alumneid')">{{dada.alumne.id}}</p>
+                <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'alumneid'" type="text" name="dada.alumne.id" ng-model="canviGestio.alumneid" />
+            </td>
             <td><p>{{dada.alumne.nom}}</p></td>
             <td><p>{{dada.alumne.cognom}}</p></td>
-            <td><p>{{dada.professor.id}}</p></td>
+            <td>
+                <p>{{dada.professor.id}}</p>
+            </td>
             <td><p>{{dada.professor.nom}}</p></td>
             <td><p>{{dada.professor.cognom}}</p></td>
-            <td><p>{{dada.assignatura.id}}</p></td>
+            <td>
+                <p>{{dada.assignatura.id}}</p>
+            </td>
             <td><p>{{dada.assignatura.nom}}</p></td>
             <td>
                 <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,dada)">
                     <div ng-if="loadingdelete != dada.id">Delete</div>
                     <md-progress-circular class="md-accent" ng-if="loadingdelete == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                </md-button>
+            </td>
+            <td>
+                <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updategestio(dada)">
+                    <div ng-if="loadingupdate != dada.id">Update</div>
+                    <md-progress-circular class="md-accent" ng-if="loadingupdate == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
                 </md-button>
             </td>
         </tr>

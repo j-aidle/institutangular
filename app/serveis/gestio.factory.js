@@ -10,7 +10,8 @@ angular.module('serveis')
             delete: (data) => {
                 return $http.delete('http://localhost:50297/api/dadas/' + data);
             },
-            update: (data,content) => {
+            update: (data, content) => {
+                console.log(content);
                 return $http.put('http://localhost:50297/api/dadas/' + data, content);
             }
         };
