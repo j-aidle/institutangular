@@ -20,6 +20,7 @@
             <th>Cognom Professor</th>
             <th>ID Assignatura</th>
             <th>Nom Assignatura</th>
+            <th></th>
         </tr>
         <tr ng-repeat="dada in dades">
             <td><p>{{dada.alumne.id}}</p></td>
@@ -30,6 +31,12 @@
             <td><p>{{dada.professor.cognom}}</p></td>
             <td><p>{{dada.assignatura.id}}</p></td>
             <td><p>{{dada.assignatura.nom}}</p></td>
+            <td>
+                <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,dada)">
+                    <div ng-if="loadingdelete != dada.id">Delete</div>
+                    <md-progress-circular class="md-accent" ng-if="loadingdelete == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                </md-button>
+            </td>
         </tr>
     </table>
 </div>

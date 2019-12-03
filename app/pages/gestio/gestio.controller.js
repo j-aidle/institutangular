@@ -3,6 +3,7 @@ angular.module('gestio')
         function gestioController($scope, $mdDialog,$mdToast,dades) {
         
         $scope.loadingCreate = false;
+        $scope.loadingdelete = null;
         $scope.editing = null;
         
         //$scope.$on('removed', deletegestio);
@@ -40,7 +41,38 @@ angular.module('gestio')
                         console.log(error);
                 });
             }
-        }
+            }
+
+            var destroygestio = (dada) => {
+                $scope.loadingdelete = dada.id;
+                dades.delete(dada.id).then(
+                    () => {
+                        dades.get().then((response) => {
+                            $scope.dades = response.data;
+                            console.log(response.data);
+                            ToastDelete();
+                        }, (error) => {
+                            console.log(error);
+                        });
+                        $scope.loadingdelete = null;
+                    },
+                    (error) => { console.log(error) }
+                );
+            }; 
+
+            $scope.confirmDelete = (ev, dada) => {
+                var confirm = $mdDialog.confirm()
+                    .title('Estas segur que vols esborrar-lo? ID Matricula: ' + dada.id)
+                    .textContent('La matricula que has seleccionat serà esborrada permanentment.')
+                    .ariaLabel('Esborrar matricula')
+                    .targetEvent(ev)
+                    .ok('Si')
+                    .cancel('Cancel');
+                $mdDialog.show(confirm).then(function () {
+                    destroygestio(dada);
+                });
+            };
+
 
 // TOAST
 
