@@ -2,12 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\alumne",
-    "\\app\\assignatura",
-    "\\app\\gestio",
-    "\\app\\header",
+    "\\app\\components",
+    "\\app\\pages",
+    "\\app\\pages\\assignatura",
+    "\\app\\pages\\gestio",
     "\\app\\serveis"
   ],
-  "SelectedNode": "\\app\\assignatura\\formassignatura.html",
+  "SelectedNode": "\\app\\serveis\\gestio.factory.js",
   "PreviewInSolutionExplorer": false
 }

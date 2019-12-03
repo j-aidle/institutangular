@@ -12,17 +12,23 @@
     <p>Llistat</p>
     <table>
         <tr>
+            <th>ID Alumne</th>
             <th>Nom Alumne</th>
             <th>Cognom Alumne</th>
+            <th>ID Professor</th>
             <th>Nom Professor</th>
             <th>Cognom Professor</th>
+            <th>ID Assignatura</th>
             <th>Nom Assignatura</th>
         </tr>
         <tr ng-repeat="dada in dades">
+            <td><p>{{dada.alumne.id}}</p></td>
             <td><p>{{dada.alumne.nom}}</p></td>
             <td><p>{{dada.alumne.cognom}}</p></td>
+            <td><p>{{dada.professor.id}}</p></td>
             <td><p>{{dada.professor.nom}}</p></td>
             <td><p>{{dada.professor.cognom}}</p></td>
+            <td><p>{{dada.assignatura.id}}</p></td>
             <td><p>{{dada.assignatura.nom}}</p></td>
         </tr>
     </table>

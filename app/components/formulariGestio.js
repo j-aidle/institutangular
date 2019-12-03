@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('gestio')
     .component('formulariGestio', {
         templateUrl: './components/formulariGestio.template.html',
@@ -20,17 +22,17 @@ angular.module('gestio')
                 
             };           
  
-           var resetForm = function () {
+           var resetForm = ()=> {
                 $scope.novaGestio.alumneid = "";
                 $scope.novaGestio.professorid = "";
                 $scope.novaGestio.assignaturaid = "";
-                $scope.novaGestio.$setPristine();
-                $scope.novaGestio.alumneid.$untouched = true;
-                $scope.novaGestio.alumneid.$touched = false;
-                $scope.novaGestio.professorid.$untouched = true;
-                $scope.novaGestio.professorid.$touched = false;
-                $scope.novaGestio.assignaturaid.$untouched = true;
-                $scope.novaGestio.assignaturaid.$touched = false;
+                $scope.novaGestioForm.$setPristine();
+                $scope.novaGestioForm.alumneid.$untouched = true;
+                $scope.novaGestioForm.alumneid.$touched = false;
+                $scope.novaGestioForm.professorid.$untouched = true;
+                $scope.novaGestioForm.professorid.$touched = false;
+                $scope.novaGestioForm.assignaturaid.$untouched = true;
+                $scope.novaGestioForm.assignaturaid.$touched = false;
             };  
     },
     bindings: {
