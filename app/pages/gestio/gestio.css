@@ -1,0 +1,11 @@
+table tr:nth-child(even) {
+    //background-color: #f2f2f2;
+    background-color: #e1eaf2;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+tr > th {
+    background-color: #A7CDDD;
+}
