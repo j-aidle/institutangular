@@ -20,9 +20,15 @@
             <th>Cognom Professor</th>
             <th>ID Assignatura</th>
             <th>Nom Assignatura</th>
-            <th colspan="2"></th>
+            <td colspan="2">
+                <md-input-container>
+                    <label>Buscar</label>
+                    <input type="text" ng-model="filtro" name="filtre" />
+                    <md-icon aria-label="lupa" md-svg-src="img/icons/search-24px.svg" />
+                </md-input-container>
+            </td>
         </tr>
-        <tr ng-repeat="dada in dades">
+        <tr ng-repeat="dada in dades | filter:filtro">
             <td>
                 <p ng-if="editing != dada.id + 'alumneid'" ng-dblclick="initupdategestio(dada, 'alumneid')">{{dada.alumne.id}}</p>
                 <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'alumneid'" type="text" name="dada.alumne.id" ng-model="canviGestio.alumneid" />
@@ -30,12 +36,14 @@
             <td><p>{{dada.alumne.nom}}</p></td>
             <td><p>{{dada.alumne.cognom}}</p></td>
             <td>
-                <p>{{dada.professor.id}}</p>
+                <p ng-if="editing != dada.id + 'professorid'" ng-dblclick="initupdategestio(dada, 'professorid')">{{dada.professor.id}}</p>
+                <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'professorid'" type="text" name="dada.professor.id" ng-model="canviGestio.professorid" />
             </td>
             <td><p>{{dada.professor.nom}}</p></td>
             <td><p>{{dada.professor.cognom}}</p></td>
             <td>
-                <p>{{dada.assignatura.id}}</p>
+                <p ng-if="editing != dada.id + 'assignaturaid'" ng-dblclick="initupdategestio(dada, 'assignaturaid')">{{dada.assignatura.id}}</p>
+                <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'assignaturaid'" type="text" name="dada.assignatura.id" ng-model="canviGestio.assignaturaid" />
             </td>
             <td><p>{{dada.assignatura.nom}}</p></td>
             <td>
