@@ -12,14 +12,38 @@
     <p>Llistat</p>
     <table>
         <tr>
-            <th>ID Alumne</th>
-            <th>Nom Alumne</th>
-            <th>Cognom Alumne</th>
-            <th>ID Professor</th>
-            <th>Nom Professor</th>
-            <th>Cognom Professor</th>
-            <th>ID Assignatura</th>
-            <th>Nom Assignatura</th>
+            <th>
+                <md-button ng-click="sortBy('alumne.id')">ID Alumne</md-button>
+                <span class="sortorder" ng-show="propertyName === 'alumne.id'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th>
+                <md-button ng-click="sortBy('alumne.nom')">Nom Alumne</md-button>
+                <span class="sortorder" ng-show="propertyName === 'alumne.nom'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th>
+                <md-button ng-click="sortBy('alumne.cognom')">Cognom Alumne</md-button>
+                <span class="sortorder" ng-show="propertyName === 'alumne.cognom'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th>
+                <md-button ng-click="sortBy('professor.id')">ID Professor</md-button>
+                <span class="sortorder" ng-show="propertyName === 'professor.id'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th>
+                <md-button ng-click="sortBy('professor.nom')">Nom Professor</md-button>
+                <span class="sortorder" ng-show="propertyName === 'professor.nom'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th>
+                <md-button ng-click="sortBy('professor.cognom')">Cognom Professor</md-button>
+                <span class="sortorder" ng-show="propertyName === 'professor.cognom'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th>
+                <md-button ng-click="sortBy('assignatura.id')">ID Assignatura</md-button>
+                <span class="sortorder" ng-show="propertyName === 'assignatura.id'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th>
+                <md-button ng-click="sortBy('assignatura.nom')">Nom Assignatura</md-button>
+                <span class="sortorder" ng-show="propertyName === 'assignatura.nom'" ng-class="{reverse: reverse}"></span>
+            </th>
             <td colspan="2">
                 <md-input-container>
                     <label>Buscar</label>
@@ -28,7 +52,7 @@
                 </md-input-container>
             </td>
         </tr>
-        <tr ng-repeat="dada in dades | filter:filtro">
+        <tr ng-repeat="dada in dades| orderBy:propertyName:reverse | filter:filtro">
             <td>
                 <p ng-if="editing != dada.id + 'alumneid'" ng-dblclick="initupdategestio(dada, 'alumneid')">{{dada.alumne.id}}</p>
                 <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'alumneid'" type="text" name="dada.alumne.id" ng-model="canviGestio.alumneid" />

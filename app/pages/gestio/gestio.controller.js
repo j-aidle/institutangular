@@ -7,6 +7,14 @@ angular.module('gestio')
         $scope.loadingupdate = null;
         $scope.editing = null;
         let updateValid = null;
+
+        $scope.propertyName = 'alumne.id';
+        $scope.reverse = true;
+
+        $scope.sortBy = function (propertyName) {
+            $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+            $scope.propertyName = propertyName;
+        };
         
         //$scope.$on('removed', deletegestio);
         //$scope.$on('updated', updategestio);
