@@ -4,7 +4,8 @@ angular.module('gestio')
     .component('formulariGestio', {
         templateUrl: './components/formulariGestio.template.html',
         controller: function formulariGestioController($scope) {
-            $scope.postgestio = (isValid) => {
+
+             $scope.postgestio = (isValid) => {
                 var novaGestio = {
                     alumneid: "",
                     professorid: "",
@@ -36,7 +37,8 @@ angular.module('gestio')
             };  
     },
     bindings: {
-        loading: '<'
+        loading: '<',
+        msgErrorTable: '<'
     }
     
     
