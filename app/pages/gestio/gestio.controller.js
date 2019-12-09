@@ -6,6 +6,7 @@ angular.module('gestio')
         $scope.loadingdelete = null;
         $scope.loadingupdate = null;
         $scope.loadingTable = true;
+        $scope.msgError = false;
         $scope.editing = null;
         let updateValid = null;
 
@@ -60,6 +61,8 @@ angular.module('gestio')
                 $scope.editing = null;
             }, (error) => {
                 console.log(error);
+                $scope.msgError = true;
+                $scope.loadingTable = false;
             });
         };
         fresh();
@@ -73,6 +76,7 @@ angular.module('gestio')
                       ToastCreate();
                     },(error)=>{
                         console.log(error);
+                        $scope.loadingCreate = false;
                 });
             }
             }

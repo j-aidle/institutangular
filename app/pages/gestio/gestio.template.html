@@ -11,7 +11,8 @@
     </div>
     <p>Llistat</p>
     <md-progress-circular ng-if="loadingTable" md-diameter="70" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
-    <table ng-if="!loadingTable">
+    <h2 ng-if="msgError" md-colors="{color:'red'}">Hi ha un error al accedir a la base de dades!!!</h2>
+    <table ng-if="!loadingTable && !msgError">
         <tr>
             <th colspan="3">Alumne</th>
             <th colspan="3">Professor</th>
