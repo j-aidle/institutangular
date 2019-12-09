@@ -17,6 +17,7 @@ angular.module('assignatura')
             $scope.loadingdelete = null;
             $scope.loadingupdate = null;
             $scope.loadingTable = true;
+            $scope.msgErrorTable = false;
             let updateValid = null;
 
             $scope.editing = null;
@@ -47,7 +48,9 @@ angular.module('assignatura')
                 $scope.assignatures = response.data;
                 $scope.loadingTable = false;
             }, (error) => {
-                console.log(error);
+                //console.log(error);
+                $scope.loadingTable = false;
+                $scope.msgErrorTable = true;
                 }
             );
 

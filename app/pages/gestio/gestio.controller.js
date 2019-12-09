@@ -6,7 +6,7 @@ angular.module('gestio')
         $scope.loadingdelete = null;
         $scope.loadingupdate = null;
         $scope.loadingTable = true;
-        $scope.msgError = false;
+        $scope.msgErrorTable = false;
         $scope.editing = null;
         let updateValid = null;
 
@@ -61,7 +61,7 @@ angular.module('gestio')
                 $scope.editing = null;
             }, (error) => {
                 console.log(error);
-                $scope.msgError = true;
+                $scope.msgErrorTable = true;
                 $scope.loadingTable = false;
             });
         };

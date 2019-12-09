@@ -15,6 +15,7 @@ angular.module('professor')
         $scope.loadingdelete = null;
         $scope.loadingupdate = null;
         $scope.loadingTable = true;
+        $scope.msgErrorTable = false;
         let updateValid = null;
 
         $scope.editing = null;
@@ -52,6 +53,8 @@ angular.module('professor')
             $scope.loadingTable = false;
         }, (error) => {
             console.log(error);
+            $scope.loadingTable = false;
+            $scope.msgErrorTable = true;
         });
 
         $scope.postprofe = (isValid) => {

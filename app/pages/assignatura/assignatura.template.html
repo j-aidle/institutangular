@@ -4,14 +4,14 @@
         <h2 class="md-headline">Crear nova Assignatura</h2>
         <md-input-container class="md-block">
             <label>Nom</label>
-            <input type="text" md-maxlength="20" required name="nom" ng-model="assignatures.nom">
+            <input ng-disabled="msgErrorTable" type="text" md-maxlength="20" required name="nom" ng-model="assignatures.nom">
             <div ng-messages="novaAssignaturaForm.Nom.$error">
                 <div ng-message="required">Aquest camp és requerit.</div>
                 <div ng-message="md-maxlength">El nom  no pot passar de 20 caràcters</div>
             </div>
         </md-input-container>
         <div>
-            <md-button layout="row" layout-align="center center" aria-label="botocrear" class="md-primary md-raised" type="submit">
+            <md-button ng-disabled="msgErrorTable" layout="row" layout-align="center center" aria-label="botocrear" class="md-primary md-raised" type="submit">
                 <div ng-if="!loading">Crear</div>
                 <md-progress-circular class="md-accent" ng-if="loading" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
             </md-button>
@@ -35,7 +35,8 @@
     </md-input-container>-->
     <div layout-align="center start" layout-wrap flex>
         <md-progress-circular ng-if="loadingTable" md-diameter="70" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
-        <table ng-if="!loadingTable">
+        <h2 ng-if="msgErrorTable" md-colors="{color:'red'}">Hi ha un error al accedir a la base de dades!!!</h2>
+        <table ng-if="!loadingTable && !msgErrorTable">
             <tr>
                 <th>Assignatures</th>
                 <th colspan="2" rowspan="2">

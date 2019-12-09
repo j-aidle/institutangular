@@ -5,7 +5,7 @@
             <h2 class="md-headline">Crear un nou Profe</h2>
             <md-input-container class="md-block">
                 <label>Nom</label>
-                <input type="text" md-maxlength="20" required name="nom" ng-model="professors.nom">
+                <input ng-disabled="msgErrorTable" type="text" md-maxlength="20" required name="nom" ng-model="professors.nom">
                 <div ng-messages="nouProfeForm.Nom.$error">
                     <div ng-message="required">Aquest camp és requerit.</div>
                     <div ng-message="md-maxlength">El nom  no pot passar de 20 caràcters</div>
@@ -13,7 +13,7 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Cognom</label>
-                <input type="text" md-maxlength="40" required name="cognom" ng-model="professors.cognom">
+                <input ng-disabled="msgErrorTable" type="text" md-maxlength="40" required name="cognom" ng-model="professors.cognom">
                 <div ng-messages="nouProfeForm.Cognom.$error">
                     <div ng-message="required">Aquest camp és requerit.</div>
                     <div ng-message="md-maxlength">El nom  no pot passar de 40 caràcters</div>
@@ -21,14 +21,14 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Edat</label>
-                <input type="number" md-maxlength="3" required name="edat" ng-model="professors.edat">
+                <input ng-disabled="msgErrorTable" type="number" md-maxlength="3" required name="edat" ng-model="professors.edat">
                 <div ng-messages="nouProfeForm.Edat.$error">
                     <div ng-message="required">Aquest camp és requerit.</div>
                     <div ng-message="md-maxlength">No pots posar més de 3 numeros</div>
                 </div>
             </md-input-container>
             <div>
-                <md-button layout="row" layout-align="center center" aria-label="botocrear" class="md-primary md-raised" type="submit">
+                <md-button ng-disabled="msgErrorTable" layout="row" layout-align="center center" aria-label="botocrear" class="md-primary md-raised" type="submit">
                     <div ng-if="!loading">Crear</div>
                     <md-progress-circular class="md-accent" ng-if="loading" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
                 </md-button>
@@ -40,7 +40,8 @@
     <p>Llista de profes</p>
     <div layout-align="center start" layout-wrap flex>
         <md-progress-circular ng-if="loadingTable" md-diameter="70" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
-        <table ng-if="!loadingTable">
+        <h2 ng-if="msgErrorTable" md-colors="{color:'red'}">Hi ha un error al accedir a la base de dades!!!</h2>
+        <table ng-if="!loadingTable && !msgErrorTable">
             <tr>
                 <th colspan="3">Professors</th>
                 <th colspan="2" rowspan="2">
