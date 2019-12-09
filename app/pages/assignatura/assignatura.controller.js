@@ -16,6 +16,7 @@ angular.module('assignatura')
             $scope.loading = false;
             $scope.loadingdelete = null;
             $scope.loadingupdate = null;
+            $scope.loadingTable = true;
             let updateValid = null;
 
             $scope.editing = null;
@@ -44,6 +45,7 @@ angular.module('assignatura')
             assignatures.get().then((response) => {
                 console.log(response);
                 $scope.assignatures = response.data;
+                $scope.loadingTable = false;
             }, (error) => {
                 console.log(error);
                 }

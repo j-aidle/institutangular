@@ -14,6 +14,7 @@ angular.module('professor')
         $scope.loading = false;
         $scope.loadingdelete = null;
         $scope.loadingupdate = null;
+        $scope.loadingTable = true;
         let updateValid = null;
 
         $scope.editing = null;
@@ -48,6 +49,7 @@ angular.module('professor')
 
         professors.get().then((response) => {
             $scope.professors = response.data;
+            $scope.loadingTable = false;
         }, (error) => {
             console.log(error);
         });

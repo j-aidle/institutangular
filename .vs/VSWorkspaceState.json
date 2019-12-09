@@ -5,8 +5,9 @@
     "\\app\\components",
     "\\app\\pages",
     "\\app\\pages\\gestio",
+    "\\app\\pages\\professor",
     "\\app\\serveis"
   ],
-  "SelectedNode": "\\app\\serveis\\gestio.factory.js",
+  "SelectedNode": "\\app\\pages\\professor\\professor.css",
   "PreviewInSolutionExplorer": false
 }

@@ -16,6 +16,7 @@ angular.module('alumne')
                 $scope.loading = false;
                 $scope.loadingdelete = null;
                 $scope.loadingupdate = null;
+                $scope.loadingTable = true;
                 let updateValid = null;
 
                 $scope.editing = null;
@@ -40,53 +41,54 @@ angular.module('alumne')
                 };
 
                                 
-            var resetform = function () {
-                $scope.nouAlumneForm.$setPristine();
-                $scope.nouAlumneForm.nom.$untouched = true;
-                $scope.nouAlumneForm.nom.$touched = false;
-                $scope.nouAlumneForm.cognom.$untouched = true;    
-                $scope.nouAlumneForm.cognom.$touched = false;
-                $scope.nouAlumneForm.edat.$untouched = true;
-                $scope.nouAlumneForm.edat.$touched = false;
-                }; 
+                var resetform = function () {
+                    $scope.nouAlumneForm.$setPristine();
+                    $scope.nouAlumneForm.nom.$untouched = true;
+                    $scope.nouAlumneForm.nom.$touched = false;
+                    $scope.nouAlumneForm.cognom.$untouched = true;    
+                    $scope.nouAlumneForm.cognom.$touched = false;
+                    $scope.nouAlumneForm.edat.$untouched = true;
+                    $scope.nouAlumneForm.edat.$touched = false;
+                    }; 
 
 
                 alumnes.get().then((response) => {
                     $scope.alumnes = response.data;
                     console.log(response.data);
+                    $scope.loadingTable = false;
                 }, (error) => {
                     console.log(error)
                 });
 
-            $scope.postalumne = (isValid) => {
-                if (isValid) {
-                    $scope.loading = true;
-                    var data = {
-                        nom: $scope.alumnes.nom,
-                        cognom: $scope.alumnes.cognom,
-                        edat: $scope.alumnes.edat
+                $scope.postalumne = (isValid) => {
+                    if (isValid) {
+                        $scope.loading = true;
+                        var data = {
+                            nom: $scope.alumnes.nom,
+                            cognom: $scope.alumnes.cognom,
+                            edat: $scope.alumnes.edat
+                        };
+                        var config = {
+                            headers: { 'Content-Type': 'application/json' }
+                        };
+
+                        alumnes.post(data, config).then(() => {
+                            $scope.msg = "creat";
+                            alumnes.get().then((response) => {
+                                $scope.alumnes = response.data;
+                                console.log(response.data);
+                                ToastCreate();
+                            }, (error) => {
+                                console.log(error)
+                            });
+                            resetform();
+                            $scope.loading = false;
+                        }, (error) => { console.log(error); }
+
+                        );
+
                     };
-                    var config = {
-                        headers: { 'Content-Type': 'application/json' }
-                    };
-
-                    alumnes.post(data, config).then(() => {
-                        $scope.msg = "creat";
-                        alumnes.get().then((response) => {
-                            $scope.alumnes = response.data;
-                            console.log(response.data);
-                            ToastCreate();
-                        }, (error) => {
-                            console.log(error)
-                        });
-                        resetform();
-                        $scope.loading = false;
-                    }, (error) => { console.log(error); }
-
-                    );
-
-                };
-            };   
+                };   
 
                 var destroyalumne = (alumne) => {
                     $scope.loadingdelete = alumne.id;
@@ -120,28 +122,28 @@ angular.module('alumne')
 
 
 
-            $scope.updatealumne = (alumne) => {
-                if (updateValid == alumne.id) {
-                    $scope.loadingupdate = alumne.id;
-                    alumnes.update(alumne.id, $scope.canviAlumne).then(
-                        (response) => {
-                            console.log(response);
-                            alumnes.get().then((response) => {
-                                $scope.alumnes = response.data;
-                                $scope.loadingupdate = null;
-                                $scope.editing = null;
-                                ToastUpdate();
+                $scope.updatealumne = (alumne) => {
+                    if (updateValid == alumne.id) {
+                        $scope.loadingupdate = alumne.id;
+                        alumnes.update(alumne.id, $scope.canviAlumne).then(
+                            (response) => {
+                                console.log(response);
+                                alumnes.get().then((response) => {
+                                    $scope.alumnes = response.data;
+                                    $scope.loadingupdate = null;
+                                    $scope.editing = null;
+                                    ToastUpdate();
+                                }, (error) => {
+                                    console.log(error)
+                                });
                             }, (error) => {
-                                console.log(error)
-                            });
-                        }, (error) => {
-                            console.log(error);
-                            $scope.loadingupdate = null;
-                        })
-                } else {
-                    console.log("no has editat l alumne");
-                }
-                };
+                                console.log(error);
+                                $scope.loadingupdate = null;
+                            })
+                    } else {
+                        console.log("no has editat l alumne");
+                    }
+                    };
 
 
 

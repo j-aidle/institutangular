@@ -34,7 +34,8 @@
         </md-select>
     </md-input-container>-->
     <div layout-align="center start" layout-wrap flex>
-        <table>
+        <md-progress-circular ng-if="loadingTable" md-diameter="70" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+        <table ng-if="!loadingTable">
             <tr>
                 <th>Assignatures</th>
                 <th colspan="2" rowspan="2">

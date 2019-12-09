@@ -39,7 +39,8 @@
 <div flex layout="column" layout-align="center center">
     <p>Llista de profes</p>
     <div layout-align="center start" layout-wrap flex>
-        <table>
+        <md-progress-circular ng-if="loadingTable" md-diameter="70" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+        <table ng-if="!loadingTable">
             <tr>
                 <th colspan="3">Professors</th>
                 <th colspan="2" rowspan="2">
@@ -67,7 +68,7 @@
             <tr ng-repeat="professor in professors | orderBy:propertyName:reverse | filter:filtro">
                 <td>
                     <p ng-if="editing != professor.id + 'nom'" ng-dblclick="initupdateprofe(professor, 'nom')">{{professor.nom}}</p>
-                    <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'nom'" type="text" name="professor.nom" ng-model="canviProfessor.nom"/>
+                    <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'nom'" type="text" name="professor.nom" ng-model="canviProfessor.nom" />
                 </td>
                 <td>
                     <p ng-if="editing != professor.id + 'cognom'" ng-dblclick="initupdateprofe(professor, 'cognom')">{{professor.cognom}}</p>
@@ -75,7 +76,7 @@
                 </td>
                 <td>
                     <p ng-if="editing != professor.id + 'edat'" ng-dblclick="initupdateprofe(professor, 'edat')">{{professor.edat}}</p>
-                    <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'edat'" type="text" name="professor.edat" ng-model="canviProfessor.edat"/>
+                    <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'edat'" type="text" name="professor.edat" ng-model="canviProfessor.edat" />
                 </td>
                 <td>
                     <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,professor)">

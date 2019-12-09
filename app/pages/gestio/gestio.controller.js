@@ -5,6 +5,7 @@ angular.module('gestio')
         $scope.loadingCreate = false;
         $scope.loadingdelete = null;
         $scope.loadingupdate = null;
+        $scope.loadingTable = true;
         $scope.editing = null;
         let updateValid = null;
 
@@ -49,11 +50,13 @@ angular.module('gestio')
                 console.log(error);
             });
 
-        function fresh () {
+        function fresh() {
+            $scope.loadingTable = true;
             dades.get().then(
             (response) => { 
                 $scope.dades = response.data;
                 $scope.loadingCreate = false; 
+                $scope.loadingTable = false;
                 $scope.editing = null;
             }, (error) => {
                 console.log(error);
