@@ -1,6 +1,6 @@
 angular.module('gestio')
-    .controller('gestioController', ['$scope','$mdDialog','$mdToast', 'dades', 
-        function gestioController($scope, $mdDialog,$mdToast,dades) {
+    .controller('gestioController', ['$scope','$mdDialog','$mdToast', 'dades','alumnes','professors','assignatures', 
+        function gestioController($scope, $mdDialog,$mdToast,dades, alumnes,professors,assignatures) {
         
         $scope.loadingCreate = false;
         $scope.loadingdelete = null;
@@ -10,6 +10,7 @@ angular.module('gestio')
         $scope.editing = null;
         let updateValid = null;
 
+         
         $scope.propertyName = 'alumne.id';
         $scope.reverse = true;
 
@@ -136,7 +137,37 @@ angular.module('gestio')
                 console.log("no has editat la matricula!");
             }
 
-        };
+            };
+
+
+            //Afegim alumnes, profes i assignatures per als desplegables.
+            alumnes.get().then((response) => {
+                $scope.alumnes = response.data;
+                $scope.loadingTable = false;
+            }, (error) => {
+                console.log(error)
+                $scope.loadingTable = false;
+                $scope.msgErrorTable = true;
+                });
+
+            professors.get().then((response) => {
+                $scope.professors = response.data;
+                $scope.loadingTable = false;
+            }, (error) => {
+                console.log(error);
+                $scope.loadingTable = false;
+                $scope.msgErrorTable = true;
+                });
+
+            assignatures.get().then((response) => {
+                $scope.assignatures = response.data;
+                $scope.loadingTable = false;
+            }, (error) => {
+                //console.log(error);
+                $scope.loadingTable = false;
+                $scope.msgErrorTable = true;
+            }
+            );
 
 
 

@@ -21,8 +21,8 @@ angular.module('gestio')
                     resetForm();
                 }
                 
-            };           
- 
+            };
+             
            var resetForm = ()=> {
                 $scope.novaGestio.alumneid = "";
                 $scope.novaGestio.professorid = "";
@@ -38,7 +38,10 @@ angular.module('gestio')
     },
     bindings: {
         loading: '<',
-        error: '<'
+        error: '<',
+        alumnes: '<',
+        professors: '<',
+        assignatures: '<'
     }
     
     

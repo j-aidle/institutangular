@@ -4,7 +4,13 @@
 <div flex layout="column" layout-align="center center">
     <div>
         <md-content>
-            <formulari-gestio :loading="loadingCreate" :error="msgErrorTable"></formulari-gestio>
+            <formulari-gestio
+                              :loading="loadingCreate"
+                              :error="msgErrorTable"
+                              :alumnes="alumnes"
+                              :professors="professors"
+                              :assignatures="assignatures">
+            </formulari-gestio>
         </md-content>
     </div>
     <p>Llistat</p>
