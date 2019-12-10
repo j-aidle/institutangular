@@ -209,4 +209,26 @@ angular.module('gestio')
                     .hideDelay(3000));
         };
 
+        //var ToastErrorGet = function () {
+        //    var pinTo = getToastPosition();
+
+        //    $mdToast.show(
+        //        $mdToast.simple()
+        //            .textContent('No s\'ha pogut llegir la dada')
+        //            .position(pinTo)
+        //            .toastClass('md-error')
+        //            .hideDelay(3000));
+        //};
+
+        //var ToastErrorUpdate = function () {
+        //var pinTo = getToastPosition();
+
+        //    $mdToast.show(
+        //        $mdToast.simple()
+        //        .textContent('No existeix aquest objecte')
+        //        .position(pinTo)
+        //        .toastClass('md-error')
+        //        .hideDelay(3000));
+        //};
+
 }]);

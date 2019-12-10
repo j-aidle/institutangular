@@ -75,7 +75,6 @@ angular.module('assignatura')
                         ToastCreate();
                         resetformAssignatures();
                         $scope.loading = false;
-                        //$mdDialog.hide();                        
                     }, (error) => { console.log(error);});
 
                 }
@@ -129,7 +128,7 @@ angular.module('assignatura')
                             $scope.loadingupdate = null;
                         });
                 } else {
-                    console.log("no has editat l assignatura");
+                    console.log("no has editat l\'assignatura");
                 }
             };
 

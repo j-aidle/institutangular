@@ -3,10 +3,11 @@
         <h2 class="md-headline">Crear nova Matricula</h2>
         <md-input-container class="md-block">
             <label>Alumne ID</label>
-            <input :ng-disabled="$ctrl.error" type="text" :ng-pattern="/[0-9]{3}/" md-maxlength="3" required name="alumneid" ng-model="novaGestio.alumneid">
+            <input :ng-disabled="$ctrl.error" type="text" :ng-pattern="/[0-9]{3}/" md-minlength="1" md-maxlength="3" required name="alumneid" ng-model="novaGestio.alumneid">
             <div ng-messages="novaGestioForm.alumneid.$error">
                 <div ng-message="required">Aquest camp és requerit.</div>
-                <div ng-message="md-maxlength">El nom  no pot passar de 3 caràcters</div>
+                <div ng-message="md-maxlength">El nom no pot passar de 3 caràcters</div>
+                <div ng-message="pattern">Només poden ser 3 numeros del 0 al 9.</div>
             </div>
         </md-input-container>
         <md-input-container class="md-block">
@@ -15,6 +16,7 @@
             <div ng-messages="novaGestioForm.professorid.$error">
                 <div ng-message="required">Aquest camp és requerit.</div>
                 <div ng-message="md-maxlength">El nom  no pot passar de 3 caràcters</div>
+                <div ng-message="pattern">Només poden ser 3 numeros del 0 al 9.</div>
             </div>
         </md-input-container>
         <md-input-container class="md-block">
@@ -23,6 +25,7 @@
             <div ng-messages="novaGestioForm.assignaturaid.$error">
                 <div ng-message="required">Aquest camp és requerit.</div>
                 <div ng-message="md-maxlength">El nom  no pot passar de 3 caràcters</div>
+                <div ng-message="pattern">Només poden ser 3 numeros del 0 al 9.</div>
             </div>
         </md-input-container>
         <div>
