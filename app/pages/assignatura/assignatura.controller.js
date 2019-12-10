@@ -106,6 +106,8 @@ angular.module('assignatura')
 
                 $mdDialog.show(confirm).then(function () {
                     destroyassignatura(assignatura);
+                }, function () {
+                    ToastConfirmDelete();
                 });
             };
 
@@ -200,6 +202,17 @@ angular.module('assignatura')
                 $mdToast.show(
                     $mdToast.simple()
                         .textContent('S\'ha esborrat l\'assignatura!')
+                        .position(pinTo)
+                        .toastClass('md-error')
+                        .hideDelay(3000));
+            };
+
+            var ToastConfirmDelete = function () {
+                var pinTo = getToastPosition();
+
+                $mdToast.show(
+                    $mdToast.simple()
+                        .textContent('No has eliminat l\'assignatura!')
                         .position(pinTo)
                         .toastClass('md-error')
                         .hideDelay(3000));

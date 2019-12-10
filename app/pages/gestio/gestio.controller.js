@@ -108,6 +108,8 @@ angular.module('gestio')
                 .cancel('Cancel');
             $mdDialog.show(confirm).then(function () {
                 destroygestio(dada);
+            }, function () {
+                ToastConfirmDelete();
             });
         };
 
@@ -197,6 +199,16 @@ angular.module('gestio')
                     .toastClass('md-error')
                     .hideDelay(3000));
         };
+        var ToastConfirmDelete = function () {
+            var pinTo = getToastPosition();
+
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent('No has eliminat la matricula!')
+                    .position(pinTo)
+                    .toastClass('md-error')
+                    .hideDelay(3000));
+        };
 
         var ToastUpdate = function () {
             var pinTo = getToastPosition();
@@ -208,6 +220,7 @@ angular.module('gestio')
                     .toastClass('md-error')
                     .hideDelay(3000));
         };
+        
 
         //var ToastErrorGet = function () {
         //    var pinTo = getToastPosition();

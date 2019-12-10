@@ -115,6 +115,8 @@ angular.module('professor')
                   .cancel('Cancel');
               $mdDialog.show(confirm).then(function () {
                     destroyprofessor(professor);
+              }, function () {
+                  ToastConfirmDelete();
               });
         };
 
@@ -201,6 +203,18 @@ angular.module('professor')
                     .toastClass('md-error')
                     .hideDelay(3000));
         };
+
+        var ToastConfirmDelete = function () {
+            var pinTo = getToastPosition();
+
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent('No has eliminat el professor!')
+                    .position(pinTo)
+                    .toastClass('md-error')
+                    .hideDelay(3000));
+        };
+
 
         var ToastUpdate = function () {
             var pinTo = getToastPosition();

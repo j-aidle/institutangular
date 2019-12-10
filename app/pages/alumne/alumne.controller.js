@@ -120,6 +120,8 @@ angular.module('alumne')
 
                     $mdDialog.show(confirm).then(function () {
                         destroyalumne(alumne);
+                    }, function () {
+                        ToastConfirmDelete();
                     });
                 }
 
@@ -207,6 +209,17 @@ angular.module('alumne')
                 $mdToast.show(
                     $mdToast.simple()
                         .textContent('S\'ha esborrat l\'alumne!')
+                        .position(pinTo)
+                        .toastClass('md-error')
+                        .hideDelay(3000));
+            };
+
+            var ToastConfirmDelete = function () {
+                var pinTo = getToastPosition();
+
+                $mdToast.show(
+                    $mdToast.simple()
+                        .textContent('No has eliminat l\'alumne!')
                         .position(pinTo)
                         .toastClass('md-error')
                         .hideDelay(3000));
