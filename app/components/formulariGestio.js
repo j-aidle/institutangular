@@ -38,7 +38,7 @@ angular.module('gestio')
     },
     bindings: {
         loading: '<',
-        msgErrorTable: '<'
+        error: '<'
     }
     
     
