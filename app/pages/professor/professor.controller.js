@@ -80,7 +80,9 @@ angular.module('professor')
                     resetform();
                     $scope.loading = false;
                     ToastCreate();
-                }, (error) => { console.log(error); }
+                }, (error) => {
+                    console.log(error);
+                }
 
                 );
 

@@ -75,7 +75,8 @@ angular.module('gestio')
                       fresh();
                       ToastCreate();
                     },(error)=>{
-                        console.log(error);
+                        //console.log(error);
+                        ToastErrorCreate();
                         $scope.loadingCreate = false;
                 });
             }
@@ -184,6 +185,17 @@ angular.module('gestio')
             $mdToast.show(
                 $mdToast.simple()
                     .textContent('S\'ha creat la matricula!')
+                    .position(pinTo)
+                    .toastClass('md-error')
+                    .hideDelay(3000));
+        };
+
+        var ToastErrorCreate = function () {
+            var pinTo = getToastPosition();
+
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent('No has posat bé alguna id, no s\ha creat!')
                     .position(pinTo)
                     .toastClass('md-error')
                     .hideDelay(3000));
