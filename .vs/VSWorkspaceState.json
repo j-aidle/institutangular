@@ -2,11 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\components",
     "\\app\\pages",
     "\\app\\pages\\assignatura",
-    "\\app\\pages\\gestio"
+    "\\app\\pages\\gestio",
+    "\\app\\pages\\home",
+    "\\app\\pages\\professor"
   ],
-  "SelectedNode": "\\app\\pages\\assignatura\\assignatura.template.html",
+  "SelectedNode": "\\app\\pages\\assignatura\\assignatura.controller.js",
   "PreviewInSolutionExplorer": false
 }

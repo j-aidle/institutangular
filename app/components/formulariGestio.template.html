@@ -9,9 +9,12 @@
                 <div ng-message="md-maxlength">El nom no pot passar de 3 caràcters</div>
                 <div ng-message="pattern">Només poden ser 3 numeros del 0 al 9.</div>
             </div>-->
-            <md-select :ng-disabled="$ctrl.error" ng-model="novaGestio.alumneid" aria-label="display alumne id">
+            <md-select :ng-disabled="$ctrl.error" ng-model="novaGestio.alumneid" aria-label="display alumne id" required>
                 <md-option ng-repeat="alum in $ctrl.alumnes" ng-value="alum.id">{{alum.id}}</md-option>
             </md-select>
+            <div ng-messages="novaGestioForm.alumneid.$error">
+                <div ng-message="required">Aquest camp és requerit.</div>
+            </div>
         </md-input-container>
         <md-input-container class="md-block">
             <label>Professor ID</label>
@@ -21,9 +24,12 @@
                 <div ng-message="md-maxlength">El nom  no pot passar de 3 caràcters</div>
                 <div ng-message="pattern">Només poden ser 3 numeros del 0 al 9.</div>
             </div>-->
-            <md-select :ng-disabled="$ctrl.error" ng-model="novaGestio.professorid" aria-label="display alumne id">
+            <md-select :ng-disabled="$ctrl.error" ng-model="novaGestio.professorid" aria-label="display prof id" required>
                 <md-option ng-repeat="prof in $ctrl.professors" ng-value="prof.id">{{prof.id}}</md-option>
             </md-select>
+            <div ng-messages="novaGestioForm.professorid.$error">
+                <div ng-message="required">Aquest camp és requerit.</div>
+            </div>
         </md-input-container>
         <md-input-container class="md-block">
             <label>Assignatura ID</label>
@@ -33,9 +39,12 @@
                 <div ng-message="md-maxlength">El nom  no pot passar de 3 caràcters</div>
                 <div ng-message="pattern">Només poden ser 3 numeros del 0 al 9.</div>
             </div>-->
-            <md-select :ng-disabled="$ctrl.error" ng-model="novaGestio.assignaturaid" aria-label="display alumne id">
+            <md-select :ng-disabled="$ctrl.error" ng-model="novaGestio.assignaturaid" aria-label="display assig id" required>
                 <md-option ng-repeat="asig in $ctrl.assignatures" ng-value="asig.id">{{asig.id}}</md-option>
             </md-select>
+            <div ng-messages="novaGestioForm.assignaturaid.$error">
+                <div ng-message="required">Aquest camp és requerit.</div>
+            </div>
         </md-input-container>
         <div>
             <md-button :ng-disabled="$ctrl.error" layout="row" layout-align="center center" class="md-primary md-raised" type="submit" aria-label="Enviar Fromulari">

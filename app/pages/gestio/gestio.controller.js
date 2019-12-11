@@ -89,7 +89,6 @@ angular.module('gestio')
                 () => {
                     dades.get().then((response) => {
                         $scope.dades = response.data;
-                        console.log(response.data);
                         ToastDelete();
                     }, (error) => {
                         console.log(error);

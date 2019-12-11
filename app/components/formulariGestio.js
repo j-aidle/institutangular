@@ -11,14 +11,14 @@ angular.module('gestio')
                     professorid: "",
                     assignaturaid: ""
                 };
-                if (isValid) {
-                    novaGestio = {
-                        alumneid: $scope.novaGestio.alumneid,
-                        professorid: $scope.novaGestio.professorid,
-                        assignaturaid: $scope.novaGestio.assignaturaid,
-                    };
-                    $scope.$emit('created',isValid,novaGestio);
-                    resetForm();
+                 if (isValid) {
+                         novaGestio = {
+                             alumneid: $scope.novaGestio.alumneid,
+                             professorid: $scope.novaGestio.professorid,
+                             assignaturaid: $scope.novaGestio.assignaturaid,
+                         };
+                         $scope.$emit('created', isValid, novaGestio);
+                         resetForm();
                 }
                 
             };
@@ -28,12 +28,12 @@ angular.module('gestio')
                 $scope.novaGestio.professorid = "";
                 $scope.novaGestio.assignaturaid = "";
                 $scope.novaGestioForm.$setPristine();
-                $scope.novaGestioForm.alumneid.$untouched = true;
-                $scope.novaGestioForm.alumneid.$touched = false;
-                $scope.novaGestioForm.professorid.$untouched = true;
-                $scope.novaGestioForm.professorid.$touched = false;
-                $scope.novaGestioForm.assignaturaid.$untouched = true;
-                $scope.novaGestioForm.assignaturaid.$touched = false;
+                //$scope.novaGestioForm.alumneid.$untouched = true;
+                //$scope.novaGestioForm.alumneid.$touched = false;
+                //$scope.novaGestioForm.professorid.$untouched = true;
+                //$scope.novaGestioForm.professorid.$touched = false;
+                //$scope.novaGestioForm.assignaturaid.$untouched = true;
+                //$scope.novaGestioForm.assignaturaid.$touched = false;
             };  
     },
     bindings: {
