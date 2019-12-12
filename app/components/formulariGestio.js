@@ -7,9 +7,9 @@ angular.module('gestio')
 
              $scope.postgestio = (isValid) => {
                 var novaGestio = {
-                    alumneid: "",
-                    professorid: "",
-                    assignaturaid: ""
+                    alumneid: undefined,
+                    professorid: undefined,
+                    assignaturaid: undefined
                 };
                  if (isValid) {
                          novaGestio = {
@@ -22,12 +22,13 @@ angular.module('gestio')
                 }
                 
             };
-             
-           var resetForm = ()=> {
-                $scope.novaGestio.alumneid = "";
-                $scope.novaGestio.professorid = "";
-                $scope.novaGestio.assignaturaid = "";
+
+            var resetForm = () => {
+                $scope.novaGestio.alumneid = undefined;
+                $scope.novaGestio.professorid = undefined;
+                $scope.novaGestio.assignaturaid = undefined;
                 $scope.novaGestioForm.$setPristine();
+                $scope.novaGestioForm.$setUntouched();
                 //$scope.novaGestioForm.alumneid.$untouched = true;
                 //$scope.novaGestioForm.alumneid.$touched = false;
                 //$scope.novaGestioForm.professorid.$untouched = true;
