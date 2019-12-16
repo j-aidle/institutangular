@@ -100,7 +100,7 @@
     </table>
     <md-content ng-if="!loadingTable && !msgErrorTable" hide-gt-xs show-xs>
         <md-list flex>
-            <md-list-item layout="column" layout-align="space-around stretch" ng-repeat="dada in dades" class="md-list-item-text compact">
+            <md-list-item layout="column" layout-align="center stretch" ng-repeat="dada in dades" class="md-list-item-text compact">
                 <div layout="row">
                     <div layout="column" flex="20" layout-align="center stretch">
                         <p ng-if="editing != dada.id + 'alumneid'" ng-click="initupdategestio(dada, 'alumneid')">{{dada.alumne.id}}</p>

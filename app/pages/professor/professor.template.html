@@ -95,8 +95,8 @@
         </table>
         <md-content ng-if="!loadingTable && !msgErrorTable" flex hide-gt-xs show-xs>
             <md-list flex>
-                <md-list-item ng-repeat="professor in professors" layout="column" layout-align="space-between stretch" class="md-line-3">
-                    <div layout="row">
+                <md-list-item ng-repeat="professor in professors" flex layout="column" layout-align="space-between stretch">
+                    <div layout="row" layout-align="space-between stretch">
                         <div layout="column" flex="33">
                             <p ng-if="editing != professor.id + 'nom'" ng-click="initupdateprofe(professor, 'nom')">{{professor.nom}}</p>
                             <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'nom'" type="text" name="professor.nom" ng-model="canviProfessor.nom" />
@@ -110,7 +110,7 @@
                             <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'edat'" type="text" name="professor.edat" ng-model="canviProfessor.edat" />
                         </div>
                     </div>
-                    <div layout="row">
+                    <div layout="row" layout-align="space-between stretch">
                         <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,professor)">
                             <div ng-if="loadingdelete != professor.id">Delete</div>
                             <md-progress-circular class="md-accent" ng-if="loadingdelete == professor.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>

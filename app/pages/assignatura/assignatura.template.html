@@ -36,7 +36,7 @@
     <div layout-align="center start" layout-wrap flex>
         <md-progress-circular ng-if="loadingTable" md-diameter="70" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
         <h2 ng-if="msgErrorTable" md-colors="{color:'red'}">Hi ha un error al accedir a la base de dades!!!</h2>
-        <table ng-if="!loadingTable && !msgErrorTable">
+        <table ng-if="!loadingTable && !msgErrorTable"  show-gt-xs hide-xs>
             <tr>
                 <th>Assignatures</th>
                 <th colspan="2" rowspan="2">
@@ -72,6 +72,24 @@
                 </td>
             </tr>
         </table>
+        <md-content ng-if="!loadingTable && !msgErrorTable" flex hide-gt-xs show-xs>
+            <md-list flex>
+                <md-list-item ng-repeat="assignatura in assignatures" flex layout="column" layout-align="space-between stretch">
+                    <div layout="row" layout-align="space-between stretch">
+                            <p ng-if="editing != assignatura.id + 'nom'" ng-click="initupdateassignatura(assignatura , 'nom')">{{assignatura.nom}}</p>
+                            <input auto-focus ng-blur="unselect()" ng-if="editing == assignatura.id + 'nom'" type="text" name="assignatura.nom" ng-model="canviassignatura.nom" />
+                            <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,assignatura)">
+                                <div ng-if="loadingdelete != assignatura.id">Delete</div>
+                                <md-progress-circular class="md-accent" ng-if="loadingdelete == assignatura.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                            </md-button>
+                            <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updateassignatura(assignatura)">
+                                <div ng-if="loadingupdate != assignatura.id">Update</div>
+                                <md-progress-circular class="md-accent" ng-if="loadingupdate == assignatura.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                            </md-button>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
     </div>
     <!--<div>
         <div dx-data-grid="gridOptions"></div>
