@@ -75,7 +75,7 @@
         <md-content ng-if="!loadingTable && !msgErrorTable" flex hide-gt-xs show-xs>
             <md-list flex>
                 <md-list-item ng-repeat="assignatura in assignatures" flex layout="column" layout-align="space-between stretch">
-                    <div layout="row" layout-align="space-between stretch">
+                    <div layout="row" layout-align="center stretch">
                             <p ng-if="editing != assignatura.id + 'nom'" ng-click="initupdateassignatura(assignatura , 'nom')">{{assignatura.nom}}</p>
                             <input auto-focus ng-blur="unselect()" ng-if="editing == assignatura.id + 'nom'" type="text" name="assignatura.nom" ng-model="canviassignatura.nom" />
                             <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,assignatura)">
