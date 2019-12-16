@@ -98,25 +98,25 @@
             </td>
         </tr>
     </table>
-    <md-content ng-if="!loadingTable && !msgErrorTable" layout="column" flex layout-align="center center" layout-fill hide-gt-xs show-xs>
+    <md-content ng-if="!loadingTable && !msgErrorTable" hide-gt-xs show-xs>
         <md-list flex>
             <md-list-item layout="column" layout-align="space-around stretch" ng-repeat="dada in dades" class="md-list-item-text compact">
                 <div layout="row">
-                    <div layout="column" flex="20">
+                    <div layout="column" flex="20" layout-align="center stretch">
                         <p ng-if="editing != dada.id + 'alumneid'" ng-click="initupdategestio(dada, 'alumneid')">{{dada.alumne.id}}</p>
                         <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'alumneid'" type="text" name="dada.alumne.id" ng-model="canviGestio.alumneid" />
                     </div>
-                    <div layout="column" flex="80">
+                    <div layout="column" flex="80" layout-align="center stretch">
                         {{dada.alumne.nom}}
                         {{dada.alumne.cognom}}
                     </div>
                 </div>
                 <div layout="row">
-                    <div layout="column" flex="20">
+                    <div layout="column" flex="20" layout-align="center stretch">
                         <p ng-if="editing != dada.id + 'professorid'" ng-click="initupdategestio(dada, 'professorid')">{{dada.professor.id}}</p>
                         <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'professorid'" type="text" name="dada.professor.id" ng-model="canviGestio.professorid" />
                     </div>
-                    <div layout="column" flex="80">
+                    <div layout="column" flex="80" layout-align="center stretch">
                         {{dada.professor.nom}}
                         {{dada.professor.cognom}}
                     </div>
@@ -126,7 +126,7 @@
                         <p ng-if="editing != dada.id + 'assignaturaid'" ng-click="initupdategestio(dada, 'assignaturaid')">{{dada.assignatura.id}}</p>
                         <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'assignaturaid'" type="text" name="dada.assignatura.id" ng-model="canviGestio.assignaturaid" />
                     </div>
-                    <div layout="column" flex="80">
+                    <div layout="column" flex="80" layout-align="center stretch">
                         {{dada.assignatura.nom}}
                     </div>
                 </div>
