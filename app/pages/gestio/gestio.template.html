@@ -16,7 +16,7 @@
     <p>Llistat</p>
     <md-progress-circular ng-if="loadingTable" md-diameter="70" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
     <h2 ng-if="msgErrorTable" md-colors="{color:'red'}">Hi ha un error al accedir a la base de dades!!!</h2>
-    <table ng-if="!loadingTable && !msgErrorTable">
+    <table ng-if="!loadingTable && !msgErrorTable" show-gt-xs hide-xs>
         <tr>
             <th colspan="3">Alumne</th>
             <th colspan="3">Professor</th>
@@ -67,6 +67,9 @@
             <td>
                 <p ng-if="editing != dada.id + 'alumneid'" ng-dblclick="initupdategestio(dada, 'alumneid')">{{dada.alumne.id}}</p>
                 <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'alumneid'" type="text" name="dada.alumne.id" ng-model="canviGestio.alumneid" />
+                <!--<md-select name="dada.alumne.id" ng-click="initupdategestio(dada, 'alumneid')" ng-model="canviGestio.alumneid" aria-label="display alumne id" required>
+                    <md-option ng-repeat="alum in alumnes" ng-value="alum.id">{{alum.id}}</md-option>
+                </md-select>-->
             </td>
             <td><p>{{dada.alumne.nom}}</p></td>
             <td><p>{{dada.alumne.cognom}}</p></td>
@@ -95,4 +98,32 @@
             </td>
         </tr>
     </table>
+    <md-content layout="column" flex layout-align="center stretch" layout-fill hide-gt-xs show-xs>
+        <md-list-item layout="column" ng-repeat="dada in dades" class="md-list-item-text compact">
+            <div layout="row">
+                <div layout="column" flex="20">
+                    <p ng-if="editing != dada.id + 'alumneid'" ng-click="initupdategestio(dada, 'alumneid')">{{dada.alumne.id}}</p>
+                    <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'alumneid'" type="text" name="dada.alumne.id" ng-model="canviGestio.alumneid" />
+                </div>
+                <div layout="column" flex="80">
+                    {{dada.alumne.nom}}
+                    {{dada.alumne.cognom}}
+                </div>
+            </div>
+            <p>{{dada.professor.id}} {{dada.professor.nom}} {{dada.professor.cognom}}</p>
+            <p>{{dada.assignatura.id}} {{dada.assignatura.nom}}</p>
+            <div>
+                <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,dada)">
+                    <div ng-if="loadingdelete != dada.id">Delete</div>
+                    <md-progress-circular class="md-accent" ng-if="loadingdelete == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                </md-button>
+                <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updategestio(dada)">
+                    <div ng-if="loadingupdate != dada.id">Update</div>
+                    <md-progress-circular class="md-accent" ng-if="loadingupdate == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                </md-button>
+            </div>
+        </md-list-item>
+    </md-content>
+
+
 </div>

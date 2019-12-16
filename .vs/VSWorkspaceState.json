@@ -4,10 +4,8 @@
     "\\app",
     "\\app\\pages",
     "\\app\\pages\\assignatura",
-    "\\app\\pages\\gestio",
-    "\\app\\pages\\home",
-    "\\app\\pages\\professor"
+    "\\app\\pages\\header"
   ],
-  "SelectedNode": "\\app\\pages\\professor\\professor.template.html",
+  "SelectedNode": "\\app\\pages\\header\\header.controller.js",
   "PreviewInSolutionExplorer": false
 }

@@ -11,7 +11,7 @@ angular.module('gestio')
         let updateValid = null;
 
          
-        $scope.propertyName = 'alumne.id';
+        $scope.propertyName = 'dada.id';
         $scope.reverse = true;
 
         $scope.sortBy = function (propertyName) {

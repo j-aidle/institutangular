@@ -20,7 +20,6 @@ angular.module('gestio')
                          $scope.$emit('created', isValid, novaGestio);
                          resetForm();
                 }
-                
             };
 
             var resetForm = () => {
@@ -29,12 +28,6 @@ angular.module('gestio')
                 $scope.novaGestio.assignaturaid = undefined;
                 $scope.novaGestioForm.$setPristine();
                 $scope.novaGestioForm.$setUntouched();
-                //$scope.novaGestioForm.alumneid.$untouched = true;
-                //$scope.novaGestioForm.alumneid.$touched = false;
-                //$scope.novaGestioForm.professorid.$untouched = true;
-                //$scope.novaGestioForm.professorid.$touched = false;
-                //$scope.novaGestioForm.assignaturaid.$untouched = true;
-                //$scope.novaGestioForm.assignaturaid.$touched = false;
             };  
     },
     bindings: {

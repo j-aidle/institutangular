@@ -39,14 +39,15 @@ angular.module('professor')
          };
 
         var resetform = function () {
-            $scope.nouProfeForm.$setPristine();
-            $scope.nouProfeForm.nom.$untouched = true;
-            $scope.nouProfeForm.nom.$touched = false;
-            $scope.nouProfeForm.cognom.$untouched = true;
-            $scope.nouProfeForm.cognom.$touched = false;
-            $scope.nouProfeForm.edat.$untouched = true;
-            $scope.nouProfeForm.edat.$touched = false;
+                $scope.nouProfeForm.$setPristine();
+                $scope.nouProfeForm.nom.$untouched = true;
+                $scope.nouProfeForm.nom.$touched = false;
+                $scope.nouProfeForm.cognom.$untouched = true;
+                $scope.nouProfeForm.cognom.$touched = false;
+                $scope.nouProfeForm.edat.$untouched = true;
+                $scope.nouProfeForm.edat.$touched = false;
         }; 
+    
 
         professors.get().then((response) => {
             $scope.professors = response.data;
