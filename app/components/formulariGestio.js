@@ -4,7 +4,6 @@ angular.module('gestio')
     .component('formulariGestio', {
         templateUrl: './components/formulariGestio.template.html',
         controller: function formulariGestioController($scope) {
-
              $scope.postgestio = (isValid) => {
                 var novaGestio = {
                     alumneid: undefined,
@@ -21,7 +20,6 @@ angular.module('gestio')
                          resetForm();
                 }
             };
-
             var resetForm = () => {
                 $scope.novaGestio.alumneid = undefined;
                 $scope.novaGestio.professorid = undefined;
@@ -37,6 +35,4 @@ angular.module('gestio')
         professors: '<',
         assignatures: '<'
     }
-    
-    
 });
