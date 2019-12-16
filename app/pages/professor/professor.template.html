@@ -41,7 +41,7 @@
     <div layout-align="center start" layout-wrap flex>
         <md-progress-circular ng-if="loadingTable" md-diameter="70" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
         <h2 ng-if="msgErrorTable" md-colors="{color:'red'}">Hi ha un error al accedir a la base de dades!!!</h2>
-        <table ng-if="!loadingTable && !msgErrorTable">
+        <table ng-if="!loadingTable && !msgErrorTable" show-gt-xs hide-xs>
             <tr>
                 <th colspan="3">Professors</th>
                 <th colspan="2" rowspan="2">
@@ -93,5 +93,35 @@
                 </td>
             </tr>
         </table>
+        <md-content ng-if="!loadingTable && !msgErrorTable" flex hide-gt-xs show-xs>
+            <md-list flex>
+                <md-list-item ng-repeat="professor in professors" layout="column" layout-align="space-between stretch" class="md-line-3">
+                    <div layout="row">
+                        <div layout="column" flex="33">
+                            <p ng-if="editing != professor.id + 'nom'" ng-click="initupdateprofe(professor, 'nom')">{{professor.nom}}</p>
+                            <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'nom'" type="text" name="professor.nom" ng-model="canviProfessor.nom" />
+                        </div>
+                        <div layout="column" flex="33">
+                            <p ng-if="editing != professor.id + 'cognom'" ng-click="initupdateprofe(professor, 'cognom')">{{professor.cognom}}</p>
+                            <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'cognom'" type="text" name="professor.cognom" ng-model="canviProfessor.cognom" />
+                        </div>
+                        <div layout="column" flex="33">
+                            <p ng-if="editing != professor.id + 'edat'" ng-click="initupdateprofe(professor, 'edat')">{{professor.edat}}</p>
+                            <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'edat'" type="text" name="professor.edat" ng-model="canviProfessor.edat" />
+                        </div>
+                    </div>
+                    <div layout="row">
+                        <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,professor)">
+                            <div ng-if="loadingdelete != professor.id">Delete</div>
+                            <md-progress-circular class="md-accent" ng-if="loadingdelete == professor.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                        </md-button>
+                        <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updateprofessor(professor)">
+                            <div ng-if="loadingupdate != professor.id">Update</div>
+                            <md-progress-circular class="md-accent" ng-if="loadingupdate == professor.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                        </md-button>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
     </div>
 </div>

@@ -98,47 +98,49 @@
             </td>
         </tr>
     </table>
-    <md-content layout="column" flex layout-align="center center" layout-fill hide-gt-xs show-xs>
-        <md-list-item layout="column" layout-align="space-around stretch" ng-repeat="dada in dades" class="md-list-item-text compact">
-            <div layout="row"  layout-align="top stretch">
-                <div layout="column" flex="20">
-                    <p ng-if="editing != dada.id + 'alumneid'" ng-click="initupdategestio(dada, 'alumneid')">{{dada.alumne.id}}</p>
-                    <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'alumneid'" type="text" name="dada.alumne.id" ng-model="canviGestio.alumneid" />
+    <md-content ng-if="!loadingTable && !msgErrorTable" layout="column" flex layout-align="center center" layout-fill hide-gt-xs show-xs>
+        <md-list flex>
+            <md-list-item layout="column" layout-align="space-around stretch" ng-repeat="dada in dades" class="md-list-item-text compact">
+                <div layout="row">
+                    <div layout="column" flex="20">
+                        <p ng-if="editing != dada.id + 'alumneid'" ng-click="initupdategestio(dada, 'alumneid')">{{dada.alumne.id}}</p>
+                        <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'alumneid'" type="text" name="dada.alumne.id" ng-model="canviGestio.alumneid" />
+                    </div>
+                    <div layout="column" flex="80">
+                        {{dada.alumne.nom}}
+                        {{dada.alumne.cognom}}
+                    </div>
                 </div>
-                <div layout="column" flex="80">
-                    {{dada.alumne.nom}}
-                    {{dada.alumne.cognom}}
+                <div layout="row">
+                    <div layout="column" flex="20">
+                        <p ng-if="editing != dada.id + 'professorid'" ng-click="initupdategestio(dada, 'professorid')">{{dada.professor.id}}</p>
+                        <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'professorid'" type="text" name="dada.professor.id" ng-model="canviGestio.professorid" />
+                    </div>
+                    <div layout="column" flex="80">
+                        {{dada.professor.nom}}
+                        {{dada.professor.cognom}}
+                    </div>
                 </div>
-            </div>
-            <div layout="row">
-                <div layout="column" flex="20">
-                    <p ng-if="editing != dada.id + 'professorid'" ng-click="initupdategestio(dada, 'professorid')">{{dada.professor.id}}</p>
-                    <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'professorid'" type="text" name="dada.professor.id" ng-model="canviGestio.professorid" />
+                <div layout="row">
+                    <div layout="column" flex="20">
+                        <p ng-if="editing != dada.id + 'assignaturaid'" ng-click="initupdategestio(dada, 'assignaturaid')">{{dada.assignatura.id}}</p>
+                        <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'assignaturaid'" type="text" name="dada.assignatura.id" ng-model="canviGestio.assignaturaid" />
+                    </div>
+                    <div layout="column" flex="80">
+                        {{dada.assignatura.nom}}
+                    </div>
                 </div>
-                <div layout="column" flex="80">
-                    {{dada.professor.nom}}
-                    {{dada.professor.cognom}}
+                <div>
+                    <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,dada)">
+                        <div ng-if="loadingdelete != dada.id">Delete</div>
+                        <md-progress-circular class="md-accent" ng-if="loadingdelete == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                    </md-button>
+                    <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updategestio(dada)">
+                        <div ng-if="loadingupdate != dada.id">Update</div>
+                        <md-progress-circular class="md-accent" ng-if="loadingupdate == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                    </md-button>
                 </div>
-            </div>
-            <div layout="row">
-                <div layout="column" flex="20">
-                    <p ng-if="editing != dada.id + 'assignaturaid'" ng-click="initupdategestio(dada, 'assignaturaid')">{{dada.assignatura.id}}</p>
-                    <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'assignaturaid'" type="text" name="dada.assignatura.id" ng-model="canviGestio.assignaturaid" />
-                </div>
-                <div layout="column" flex="80">
-                    {{dada.assignatura.nom}}
-                </div>
-            </div>
-            <div>
-                <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,dada)">
-                    <div ng-if="loadingdelete != dada.id">Delete</div>
-                    <md-progress-circular class="md-accent" ng-if="loadingdelete == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
-                </md-button>
-                <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updategestio(dada)">
-                    <div ng-if="loadingupdate != dada.id">Update</div>
-                    <md-progress-circular class="md-accent" ng-if="loadingupdate == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
-                </md-button>
-            </div>
-        </md-list-item>
-    </md-content>
+            </md-list-item>
+        </md-list>
+</md-content>
 </div>
