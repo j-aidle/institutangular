@@ -25,7 +25,7 @@
     </div>-->
 </div>
 <div flex layout="column" layout-align="center center">
-    <p>Llista d'assignatures</p>
+    <h3>Llista d'assignatures</h3>
     <!--<md-input-container>
         <label>Ordena</label>
         <md-select ng-model="$ctrl.orderProp">
@@ -74,19 +74,27 @@
         </table>
         <md-content ng-if="!loadingTable && !msgErrorTable" flex hide-gt-xs show-xs>
             <md-list flex>
-                <md-list-item ng-repeat="assignatura in assignatures" flex layout="column" layout-align="space-between stretch">
-                    <div layout="row" layout-align="center stretch">
+                <md-list-item ng-repeat="assignatura in assignatures" flex layout="column" layout-align="center stretch">
+                    <div layout="row" flex="grow" layout-align="space-around center">
+                        <div layout="column">
+                            <h4>Nom:</h4>
+                        </div>
+                        <div layout="column">
                             <p ng-if="editing != assignatura.id + 'nom'" ng-click="initupdateassignatura(assignatura , 'nom')">{{assignatura.nom}}</p>
                             <input auto-focus ng-blur="unselect()" ng-if="editing == assignatura.id + 'nom'" type="text" name="assignatura.nom" ng-model="canviassignatura.nom" />
-                            <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,assignatura)">
-                                <div ng-if="loadingdelete != assignatura.id">Delete</div>
-                                <md-progress-circular class="md-accent" ng-if="loadingdelete == assignatura.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
-                            </md-button>
-                            <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updateassignatura(assignatura)">
-                                <div ng-if="loadingupdate != assignatura.id">Update</div>
-                                <md-progress-circular class="md-accent" ng-if="loadingupdate == assignatura.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
-                            </md-button>
+                        </div>
                     </div>
+                    <div layout="row" flex="grow">
+                                <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,assignatura)">
+                                    <div ng-if="loadingdelete != assignatura.id">Delete</div>
+                                    <md-progress-circular class="md-accent" ng-if="loadingdelete == assignatura.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                                </md-button>
+                                <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updateassignatura(assignatura)">
+                                    <div ng-if="loadingupdate != assignatura.id">Update</div>
+                                    <md-progress-circular class="md-accent" ng-if="loadingupdate == assignatura.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                                </md-button>
+                     </div>
+                    <md-divider></md-divider>
                 </md-list-item>
             </md-list>
         </md-content>

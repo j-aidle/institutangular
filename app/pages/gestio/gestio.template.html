@@ -13,7 +13,7 @@
             </formulari-gestio>
         </md-content>
     </div>
-    <p>Llistat</p>
+    <h3>Llistat</h3>
     <md-progress-circular ng-if="loadingTable" md-diameter="70" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
     <h2 ng-if="msgErrorTable" md-colors="{color:'red'}">Hi ha un error al accedir a la base de dades!!!</h2>
     <table ng-if="!loadingTable && !msgErrorTable" show-gt-xs hide-xs>
@@ -131,15 +131,18 @@
                     </div>
                 </div>
                 <div>
-                    <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,dada)">
-                        <div ng-if="loadingdelete != dada.id">Delete</div>
+                    <md-button aria-label="botodelete" ng-click="confirmDelete($event,dada)">
+                        <!--<div ng-if="loadingdelete != dada.id">Delete</div>-->
+                        <md-icon ng-if="loadingdelete != dada.id" md-svg-icon="img/icons/delete-24px.svg"></md-icon>
                         <md-progress-circular class="md-accent" ng-if="loadingdelete == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
                     </md-button>
-                    <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updategestio(dada)">
-                        <div ng-if="loadingupdate != dada.id">Update</div>
+                    <md-button  aria-label="botoupdate" ng-click="updategestio(dada)">
+                        <!--<div ng-if="loadingupdate != dada.id">Update</div>-->
+                        <md-icon ng-if="loadingdelete != dada.id" md-svg-icon="img/icons/edit-24px.svg"></md-icon>
                         <md-progress-circular class="md-accent" ng-if="loadingupdate == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
                     </md-button>
                 </div>
+                <md-divider></md-divider>
             </md-list-item>
         </md-list>
 </md-content>
