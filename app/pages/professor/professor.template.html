@@ -97,29 +97,44 @@
             <md-list flex>
                 <md-list-item ng-repeat="professor in professors" layout="column" flex>
                     <div layout="column" layout-align="center stretch" flex="grow">
-                        <div layout="row">
-                            <p ng-if="editing != professor.id + 'nom'" ng-click="initupdateprofe(professor, 'nom')">{{professor.nom}}</p>
-                            <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'nom'" type="text" name="professor.nom" ng-model="canviProfessor.nom" />
+                        <div layout="row" layout-align="space-around center">
+                            <div layout="column">
+                                <h4>Nom:</h4>
+                            </div>
+                            <div layout="column">
+                                <p ng-if="editing != professor.id + 'nom'" ng-click="initupdateprofe(professor, 'nom')">{{professor.nom}}</p>
+                                <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'nom'" type="text" name="professor.nom" ng-model="canviProfessor.nom" />
+                            </div>
                         </div>
-                        <div layout="row">
-                            <p ng-if="editing != professor.id + 'cognom'" ng-click="initupdateprofe(professor, 'cognom')">{{professor.cognom}}</p>
-                            <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'cognom'" type="text" name="professor.cognom" ng-model="canviProfessor.cognom" />
+                        <div layout="row" layout-align="space-around center">
+                            <div layout="column">
+                                <h4>Cognom:</h4>
+                            </div>
+                            <div layout="column">
+                                <p ng-if="editing != professor.id + 'cognom'" ng-click="initupdateprofe(professor, 'cognom')">{{professor.cognom}}</p>
+                                <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'cognom'" type="text" name="professor.cognom" ng-model="canviProfessor.cognom" />
+                            </div>
+                            </div>
+                        <div layout="row" layout-align="space-around center">
+                            <div layout="column">
+                                <h4>Edat:</h4>
+                            </div>
+                            <div layout="column">
+                                <p ng-if="editing != professor.id + 'edat'" ng-click="initupdateprofe(professor, 'edat')">{{professor.edat}}</p>
+                                <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'edat'" type="text" name="professor.edat" ng-model="canviProfessor.edat" />
+                            </div>
+                            </div>
+                            <div layout="row" layout-align="center stretch">
+                                <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,professor)">
+                                    <div ng-if="loadingdelete != professor.id">Delete</div>
+                                    <md-progress-circular class="md-accent" ng-if="loadingdelete == professor.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                                </md-button>
+                                <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updateprofessor(professor)">
+                                    <div ng-if="loadingupdate != professor.id">Update</div>
+                                    <md-progress-circular class="md-accent" ng-if="loadingupdate == professor.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                                </md-button>
+                            </div>
                         </div>
-                        <div layout="row">
-                            <p ng-if="editing != professor.id + 'edat'" ng-click="initupdateprofe(professor, 'edat')">{{professor.edat}}</p>
-                            <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'edat'" type="text" name="professor.edat" ng-model="canviProfessor.edat" />
-                        </div>
-                        <div layout="row" layout-align="center stretch">
-                            <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,professor)">
-                                <div ng-if="loadingdelete != professor.id">Delete</div>
-                                <md-progress-circular class="md-accent" ng-if="loadingdelete == professor.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
-                            </md-button>
-                            <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updateprofessor(professor)">
-                                <div ng-if="loadingupdate != professor.id">Update</div>
-                                <md-progress-circular class="md-accent" ng-if="loadingupdate == professor.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
-                            </md-button>
-                        </div>
-                    </div>
                     
                     <md-divider></md-divider>
                 </md-list-item>
