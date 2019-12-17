@@ -69,11 +69,10 @@
 
 </head>
 <body>
-    <div ui-view="header"></div>
-    <div ui-view="menu"></div>
     <div layout="column" layout-fill>
-        <md-content ui-view="primary" layout-padding></md-content>
+        <div ui-view="header"></div>
+        <div ui-view="menu"></div>
+        <md-content flex="grow" layout="column"><div ui-view="primary" layout-padding/></md-content>
     </div>
-    
 </body>
 </html>
