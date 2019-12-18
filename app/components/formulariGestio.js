@@ -11,14 +11,14 @@ angular.module('gestio')
                     assignaturaid: undefined
                 };
                  if (isValid) {
-                         novaGestio = {
-                             alumneid: $scope.novaGestio.alumneid,
-                             professorid: $scope.novaGestio.professorid,
-                             assignaturaid: $scope.novaGestio.assignaturaid,
-                         };
-                         $scope.$emit('created', isValid, novaGestio);
-                         resetForm();
-                }
+                     novaGestio = {
+                         alumneid: $scope.novaGestio.alumneid,
+                         professorid: $scope.novaGestio.professorid,
+                         assignaturaid: $scope.novaGestio.assignaturaid,
+                     };
+                     $scope.$emit('created', isValid, novaGestio);
+                     resetForm();
+                 }
             };
             var resetForm = () => {
                 $scope.novaGestio.alumneid = undefined;

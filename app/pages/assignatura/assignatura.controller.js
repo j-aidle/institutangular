@@ -4,11 +4,10 @@ angular.module('assignatura')
         function assignaturaController($scope, $mdDialog, $mdToast, assignatures) {
 
             //this.orderProp = 'id';
-            $scope.propertyName = 'nom';
-            $scope.reverse = false;
-
+            $scope.propertyName = 'id';
+            $scope.reverse = true;
             $scope.sortBy = function (propertyName) {
-                $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : true;
+                $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
                 $scope.propertyName = propertyName;
             };
 

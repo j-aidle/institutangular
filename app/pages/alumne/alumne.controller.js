@@ -4,7 +4,7 @@ angular.module('alumne')
         function matriculaController($scope, $mdDialog, $mdToast, alumnes)
             {
                 //this.orderProp = 'id';
-                $scope.propertyName = 'edat';
+                $scope.propertyName = 'id';
                 $scope.reverse = true;
 
                 $scope.sortBy = function (propertyName) {

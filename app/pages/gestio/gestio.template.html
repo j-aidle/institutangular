@@ -62,7 +62,7 @@
                 <span class="sortorder" ng-show="propertyName === 'assignatura.nom'" ng-class="{reverse: reverse}"></span>
             </th>
         </tr>
-        <tr ng-repeat="dada in dades| orderBy:propertyName:reverse | filter:filtro">
+        <tr ng-repeat="dada in dades | orderBy:propertyName:reverse | filter:filtro">
             <td>
                 <p ng-if="editing != dada.id + 'alumneid'" ng-dblclick="initupdategestio(dada, 'alumneid')">{{dada.alumne.id}}</p>
                 <input auto-focus ng-blur="unsel()" ng-if="editing == dada.id + 'alumneid'" type="text" name="dada.alumne.id" ng-model="canviGestio.alumneid" />
@@ -97,7 +97,7 @@
             </td>
         </tr>
     </table>
-    <div flex hide-gt-xs show-xs layout="row" layout-align="center stretch">
+    <div ng-if="!loadingTable && !msgErrorTable" flex hide-gt-xs show-xs layout="row" layout-align="center stretch">
         <md-input-container>
             <label>Buscar</label>
             <input type="text" ng-model="filtro" name="filtre" />
@@ -106,7 +106,7 @@
     </div>
     <md-content ng-if="!loadingTable && !msgErrorTable" hide-gt-xs show-xs>
         <md-list flex>
-            <md-list-item layout="column" layout-align="center stretch" ng-repeat="dada in dades | filter:filtro" class="md-list-item-text compact">
+            <md-list-item layout="column" layout-align="center stretch" ng-repeat="dada in dades | orderBy:propertyName:reverse | filter:filtro" class="md-list-item-text compact">
                 <div layout="row" layout-align="space-around stretch">
                     <div layout="column">
                         <h4>Alumne:</h4>

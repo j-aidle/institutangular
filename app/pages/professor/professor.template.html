@@ -93,7 +93,7 @@
                 </td>
             </tr>
         </table>
-        <div flex hide-gt-xs show-xs layout="row" layout-align="center stretch">
+        <div ng-if="!loadingTable && !msgErrorTable" flex hide-gt-xs show-xs layout="row" layout-align="center stretch">
             <md-input-container>
                 <label>Buscar</label>
                 <input type="text" ng-model="filtro" name="filtre" />
@@ -102,7 +102,7 @@
         </div>
         <md-content ng-if="!loadingTable && !msgErrorTable" flex hide-gt-xs show-xs>
             <md-list flex>
-                <md-list-item ng-repeat="professor in professors | filter:filtro" layout="column" flex>
+                <md-list-item ng-repeat="professor in professors | orderBy:propertyName:reverse | filter:filtro" layout="column" flex>
                     <div layout="column" layout-align="center stretch" flex="grow">
                         <div layout="row" layout-align="space-around center">
                             <div layout="column">

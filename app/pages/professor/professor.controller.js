@@ -3,7 +3,7 @@ angular.module('professor')
         function professorController($scope, $mdDialog, $mdToast, professors) {
 
         //this.orderProp = 'id';
-        $scope.propertyName = 'edat';
+        $scope.propertyName = 'id';
         $scope.reverse = true;
 
         $scope.sortBy = function (propertyName) {
