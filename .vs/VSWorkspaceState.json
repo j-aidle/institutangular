@@ -3,9 +3,8 @@
     "",
     "\\app",
     "\\app\\pages",
-    "\\app\\pages\\assignatura",
-    "\\app\\pages\\professor"
+    "\\app\\pages\\assignatura"
   ],
-  "SelectedNode": "\\app\\pages\\professor\\professor.template.html",
+  "SelectedNode": "\\app\\pages\\assignatura\\assignatura.template.html",
   "PreviewInSolutionExplorer": false
 }

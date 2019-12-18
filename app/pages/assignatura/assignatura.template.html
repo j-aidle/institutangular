@@ -85,12 +85,16 @@
                         </div>
                     </div>
                     <div layout="row" flex="grow">
-                                <md-button class="md-raised md-warn" aria-label="botodelete" ng-click="confirmDelete($event,assignatura)">
-                                    <div ng-if="loadingdelete != assignatura.id">Delete</div>
+                                <md-button class="md-warn" aria-label="botodelete" ng-click="confirmDelete($event,assignatura)">
+                                    <div ng-if="loadingdelete != assignatura.id">
+                                        <md-icon ng-if="loadingdelete != assignatura.id" md-svg-icon="img/icons/delete-24px.svg" />
+                                    </div>
                                     <md-progress-circular class="md-accent" ng-if="loadingdelete == assignatura.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
                                 </md-button>
-                                <md-button class="md-raised md-hue" aria-label="botoupdate" ng-click="updateassignatura(assignatura)">
-                                    <div ng-if="loadingupdate != assignatura.id">Update</div>
+                                <md-button class="md-hue" aria-label="botoupdate" ng-click="updateassignatura(assignatura)">
+                                    <div ng-if="loadingupdate != assignatura.id">
+                                        <md-icon md-svg-icon="img/icons/edit-24px.svg" />
+                                    </div>
                                     <md-progress-circular class="md-accent" ng-if="loadingupdate == assignatura.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
                                 </md-button>
                      </div>
