@@ -36,7 +36,7 @@
         </form>
     </md-content>
     <div flex layout="column" layout-align="center center">
-        <p>Llista d'alumnes</p>
+        <h3>Llista d'alumnes</h3>
         <!--<md-input-container>
             <label>Ordena</label>
             <md-select ng-model="$ctrl.orderProp">
@@ -49,7 +49,7 @@
         <div layout-align="center start" layout-wrap flex>
             <md-progress-circular ng-if="loadingTable" md-diameter="70" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
             <h2 ng-if="msgErrorTable" md-colors="{color:'red'}">Hi ha un error al accedir a la base de dades!!!</h2>
-            <table ng-if="!loadingTable && !msgErrorTable">
+            <table ng-if="!loadingTable && !msgErrorTable" show-gt-xs hide-xs>
                 <tr>
                     <th colspan="3">Alumnes</th>
                     <th colspan="2" rowspan="2">
@@ -101,6 +101,61 @@
                     </td>
                 </tr>
             </table>
+            <div flex hide-gt-xs show-xs layout="row" layout-align="center stretch">
+                <md-input-container>
+                    <label>Buscar</label>
+                    <input type="text" ng-model="filtro" name="filtre" />
+                    <md-icon aria-label="lupa" md-svg-src="img/icons/search-24px.svg" />
+                </md-input-container>
+            </div>
+            <md-content ng-if="!loadingTable && !msgErrorTable" flex hide-gt-xs show-xs>
+                <md-list flex>
+                    <md-list-item ng-repeat="alumne in alumnes | filter:filtro" layout="column" layout-align="center stretch">
+                        <div layout="row" layout-align="space-around center">
+                            <div layout="column">
+                                <h4>Nom:</h4>
+                            </div>
+                            <div layout="column">
+                                <p ng-if="editing != alumne.id + 'nom'" ng-click="initupdatealum(alumne , 'nom')">{{alumne.nom}}</p>
+                                <input auto-focus ng-blur="unselect()" ng-if="editing == alumne.id + 'nom'" type="text" name="alumne.nom" ng-model="canviAlumne.nom" />
+                            </div>
+                        </div>
+                        <div layout="row" layout-align="space-around center">
+                            <div layout="column">
+                                <h4>Cognom:</h4>
+                            </div>
+                            <div layout="column">
+                                <p ng-if="editing != alumne.id + 'cognom'" ng-click="initupdatealum(alumne , 'cognom')">{{alumne.cognom}}</p>
+                                <input auto-focus ng-blur="unselect()" ng-if="editing == alumne.id + 'cognom'" type="text" name="alumne.cognom" ng-model="canviAlumne.cognom" />
+                            </div>
+                        </div>
+                        <div layout="row" layout-align="space-around center">
+                            <div layout="column">
+                                <h4>Edat:</h4>
+                            </div>
+                            <div layout="column">
+                                <p ng-if="editing != alumne.id + 'edat'" ng-click="initupdatealum(alumne , 'edat')">{{alumne.edat}}</p>
+                                <input auto-focus ng-blur="unselect()" ng-if="editing == alumne.id + 'edat'" type="text" name="alumne.edat" ng-model="canviAlumne.edat" />
+                            </div>
+                        </div>
+                        <div layout="row" layout-align="center stretch">
+                            <md-button class="md-warn" aria-label="botodelete" ng-click="confirmDelete($event,alumne)">
+                                <div ng-if="loadingdelete != alumne.id">
+                                    <md-icon ng-if="loadingdelete != alumne.id" md-svg-icon="img/icons/delete-24px.svg" />
+                                </div>
+                                <md-progress-circular class="md-accent" ng-if="loadingdelete == alumne.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                            </md-button>
+                            <md-button class="md-hue" aria-label="botoupdate" ng-click="updatealumne(alumne)">
+                                <div ng-if="loadingupdate != alumne.id">
+                                    <md-icon md-svg-icon="img/icons/edit-24px.svg" />
+                                </div>
+                                <md-progress-circular class="md-accent" ng-if="loadingupdate == alumne.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                            </md-button>
+                        </div>
+                        <md-divider />
+                    </md-list-item>
+                </md-list>
+            </md-content>
         </div>
     </div>
 </div>

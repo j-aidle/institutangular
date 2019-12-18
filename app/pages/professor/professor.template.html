@@ -93,9 +93,16 @@
                 </td>
             </tr>
         </table>
+        <div flex hide-gt-xs show-xs layout="row" layout-align="center stretch">
+            <md-input-container>
+                <label>Buscar</label>
+                <input type="text" ng-model="filtro" name="filtre" />
+                <md-icon aria-label="lupa" md-svg-src="img/icons/search-24px.svg" />
+            </md-input-container>
+        </div>
         <md-content ng-if="!loadingTable && !msgErrorTable" flex hide-gt-xs show-xs>
             <md-list flex>
-                <md-list-item ng-repeat="professor in professors" layout="column" flex>
+                <md-list-item ng-repeat="professor in professors | filter:filtro" layout="column" flex>
                     <div layout="column" layout-align="center stretch" flex="grow">
                         <div layout="row" layout-align="space-around center">
                             <div layout="column">
@@ -114,7 +121,7 @@
                                 <p ng-if="editing != professor.id + 'cognom'" ng-click="initupdateprofe(professor, 'cognom')">{{professor.cognom}}</p>
                                 <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'cognom'" type="text" name="professor.cognom" ng-model="canviProfessor.cognom" />
                             </div>
-                            </div>
+                        </div>
                         <div layout="row" layout-align="space-around center">
                             <div layout="column">
                                 <h4>Edat:</h4>
@@ -123,23 +130,22 @@
                                 <p ng-if="editing != professor.id + 'edat'" ng-click="initupdateprofe(professor, 'edat')">{{professor.edat}}</p>
                                 <input auto-focus ng-blur="unsel()" ng-if="editing == professor.id + 'edat'" type="text" name="professor.edat" ng-model="canviProfessor.edat" />
                             </div>
-                            </div>
-                            <div layout="row" layout-align="center stretch">
-                                <md-button class="md-warn" aria-label="botodelete" ng-click="confirmDelete($event,professor)">
-                                    <div ng-if="loadingdelete != professor.id">
-                                        <md-icon ng-if="loadingdelete != professor.id" md-svg-icon="img/icons/delete-24px.svg" />
-                                    </div>
-                                    <md-progress-circular class="md-accent" ng-if="loadingdelete == professor.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
-                                </md-button>
-                                <md-button class="md-hue" aria-label="botoupdate" ng-click="updateprofessor(professor)">
-                                    <div ng-if="loadingupdate != professor.id">
-                                        <md-icon md-svg-icon="img/icons/edit-24px.svg" />
-                                    </div>
-                                    <md-progress-circular class="md-accent" ng-if="loadingupdate == professor.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
-                                </md-button>
-                            </div>
                         </div>
-                    
+                        <div layout="row" layout-align="center stretch">
+                            <md-button class="md-warn" aria-label="botodelete" ng-click="confirmDelete($event,professor)">
+                                <div ng-if="loadingdelete != professor.id">
+                                    <md-icon ng-if="loadingdelete != professor.id" md-svg-icon="img/icons/delete-24px.svg" />
+                                </div>
+                                <md-progress-circular class="md-accent" ng-if="loadingdelete == professor.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                            </md-button>
+                            <md-button class="md-hue" aria-label="botoupdate" ng-click="updateprofessor(professor)">
+                                <div ng-if="loadingupdate != professor.id">
+                                    <md-icon md-svg-icon="img/icons/edit-24px.svg" />
+                                </div>
+                                <md-progress-circular class="md-accent" ng-if="loadingupdate == professor.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                            </md-button>
+                        </div>
+                    </div>
                     <md-divider></md-divider>
                 </md-list-item>
             </md-list>
