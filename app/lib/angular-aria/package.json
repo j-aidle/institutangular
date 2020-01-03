@@ -1,31 +1,27 @@
 {
-  "_args": [
-    [
-      "angular-aria@1.7.8",
-      "C:\\Users\\dijvega\\institut"
-    ]
-  ],
-  "_from": "angular-aria@1.7.8",
-  "_id": "angular-aria@1.7.8",
+  "_from": "angular-aria@1.7.9",
+  "_id": "angular-aria@1.7.9",
   "_inBundle": false,
-  "_integrity": "sha512-facq/111sZKL2wUUqRA1GnGt+lZ8KAcX9Aw04cNA+OyEkoaoRC77NY4VSOTQxghlSd0OPAdLeFnmETnuiWrpLg==",
+  "_integrity": "sha512-luI3Jemd1AbOQW0krdzfEG3fM0IFtLY0bSSqIDEx3POE0XjKIC1MkrO8Csyq9PPgueLphyAPofzUwZ8YeZ88SA==",
   "_location": "/angular-aria",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "angular-aria@1.7.8",
+    "raw": "angular-aria@1.7.9",
     "name": "angular-aria",
     "escapedName": "angular-aria",
-    "rawSpec": "1.7.8",
+    "rawSpec": "1.7.9",
     "saveSpec": null,
-    "fetchSpec": "1.7.8"
+    "fetchSpec": "1.7.9"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/angular-aria/-/angular-aria-1.7.8.tgz",
-  "_spec": "1.7.8",
+  "_resolved": "https://registry.npmjs.org/angular-aria/-/angular-aria-1.7.9.tgz",
+  "_shasum": "90c61895ffbd876e95915222b32a7bd0070af7e3",
+  "_spec": "angular-aria@1.7.9",
   "_where": "C:\\Users\\dijvega\\institut",
   "author": {
     "name": "Angular Core Team",
@@ -34,6 +30,8 @@
   "bugs": {
     "url": "https://github.com/angular/angular.js/issues"
   },
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "AngularJS module for making accessibility easy",
   "homepage": "http://angularjs.org",
   "jspm": {
@@ -63,5 +61,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.7.8"
+  "version": "1.7.9"
 }

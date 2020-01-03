@@ -23,7 +23,7 @@
             <th colspan="2" rowspan="2">
                 <md-input-container>
                     <label>Buscar</label>
-                    <input type="text" ng-model="filtro" name="filtre" />
+                    <input type="text" ng-model="filtro" name="filtre_" />
                     <md-icon aria-label="lupa" md-svg-src="img/icons/search-24px.svg" />
                 </md-input-container>
             </th>
@@ -97,16 +97,18 @@
             </td>
         </tr>
     </table>
-    <div ng-if="!loadingTable && !msgErrorTable" flex hide-gt-xs show-xs layout="row" layout-align="center stretch">
+
+<div  hide-gt-xs show-xs>
+    <div  flex  layout="row" layout-align="center stretch">
         <md-input-container>
             <label>Buscar</label>
-            <input type="text" ng-model="filtro" name="filtre" />
+            <input type="text" ng-model="filtroX"  />
             <md-icon aria-label="lupa" md-svg-src="img/icons/search-24px.svg" />
         </md-input-container>
     </div>
-    <md-content ng-if="!loadingTable && !msgErrorTable" hide-gt-xs show-xs>
+    <md-content>
         <md-list flex>
-            <md-list-item layout="column" layout-align="center stretch" ng-repeat="dada in dades | orderBy:propertyName:reverse | filter:filtro" class="md-list-item-text compact">
+            <md-list-item layout="column" layout-align="center stretch" ng-repeat="dada in dades | orderBy:propertyName:reverse | filter:filtroX" class="md-list-item-text compact">
                 <div layout="row" layout-align="space-around stretch">
                     <div layout="column">
                         <h4>Alumne:</h4>
@@ -146,21 +148,22 @@
                     </div>
                 </div>
                 <div layout="row" layout-align="center stretch">
-                    <md-button class="md-warn" aria-label="botodelete" ng-click="confirmDelete($event,dada)">
-                        <div ng-if="loadingdelete != dada.id">
-                            <md-icon ng-if="loadingdelete != dada.id" md-svg-icon="img/icons/delete-24px.svg" />
-                        </div>
-                        <md-progress-circular class="md-accent" ng-if="loadingdelete == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
-                    </md-button>
                     <md-button class="md-hue" aria-label="botoupdate" ng-click="updategestio(dada)">
                         <div ng-if="loadingupdate != dada.id">
                             <md-icon md-svg-icon="img/icons/edit-24px.svg" />
                         </div>
                         <md-progress-circular class="md-accent" ng-if="loadingupdate == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
                     </md-button>
+                    <md-button class="md-warn" aria-label="botodelete" ng-click="confirmDelete($event,dada)">
+                        <div ng-if="loadingdelete != dada.id">
+                            <md-icon ng-if="loadingdelete != dada.id" md-svg-icon="img/icons/delete-24px.svg" />
+                        </div>
+                        <md-progress-circular class="md-accent" ng-if="loadingdelete == dada.id" md-diameter="25" md-mode="indeterminate" ng-disabled="false" value="..."></md-progress-circular>
+                    </md-button>
                 </div>
                 <md-divider></md-divider>
             </md-list-item>
         </md-list>
     </md-content>
+    </div>
 </div>

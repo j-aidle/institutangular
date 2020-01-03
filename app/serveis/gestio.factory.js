@@ -11,7 +11,6 @@ angular.module('serveis')
                 return $http.delete('http://localhost:50297/api/dadas/' + data);
             },
             update: (data, content) => {
-                console.log(content);
                 return $http.put('http://localhost:50297/api/dadas/' + data, content);
             }
         };

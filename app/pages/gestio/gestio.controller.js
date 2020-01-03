@@ -10,15 +10,21 @@ angular.module('gestio')
         $scope.editing = null;
         let updateValid = null;
 
-         
+
+            $scope.filtro = "";
+            $scope.filtroX = "";
+
+
+
         $scope.propertyName = 'dada.id';
         $scope.reverse = true;
 
         $scope.sortBy = function (propertyName) {
             $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
             $scope.propertyName = propertyName;
-        };
-        
+            };
+
+
         //$scope.$on('removed', deletegestio);
         //$scope.$on('updated', updategestio);
         $scope.$on('created', postgestio);

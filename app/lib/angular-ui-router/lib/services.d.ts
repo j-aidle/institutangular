@@ -10,10 +10,9 @@ declare module '@uirouter/core/lib/router' {
         urlRouterProvider: UrlRouterProvider;
     }
 }
-declare function watchDigests($rootScope: IRootScopeService): void;
-declare namespace watchDigests {
+export declare function watchDigests($rootScope: IRootScopeService): void;
+export declare namespace watchDigests {
     var $inject: string[];
 }
-export default watchDigests;
 /** @hidden TODO: find a place to move this */
 export declare const getLocals: (ctx: ResolveContext) => TypedMap<any>;
